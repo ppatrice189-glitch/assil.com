@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS9YCCEDT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FS9YCCEDT9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical Slider Puzzle - Mémorial Assil Hamdi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto:wght@400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- PALETTE DE COULEURS HARMONISÉE : BRUN ET OR PREMIUM --- */
+        :root {
+            --primary-bg: #F4F1EA; /* Beige très clair doux */
+            --secondary-bg: #ffffff; /* Blanc pur pour le conteneur */
+            --accent-dark: #3E2723; /* Brun profond signature */
+            --accent-medium: #5D4037; /* Brun moyen */
+            --accent-gold: #D4AF37; /* Or métallique précieux */
+            --text-dark: #2A211F; /* Noir adouci */
+            --text-light: #756865; /* Gris chaud atténué */
+            --border-light: #E6E1DA; /* Bordure douce */
+            --shadow-medium: rgba(62, 39, 35, 0.12) 0px 12px 30px 0px;
+        }
+
+        body {
+            font-family: 'Roboto', 'Cairo', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* شريط الترحم العلوي */
+        .top-memorial-ribbon {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            padding: 12px 30px;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-gold);
+            letter-spacing: 0.5px;
+            direction: rtl;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .top-memorial-ribbon span {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        #game-container {
+            text-align: center;
+            background-color: var(--secondary-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-light);
+            max-width: 420px;
+            width: 100%;
+            box-sizing: border-box;
+            margin: auto 20px;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-dark);
+            font-size: 2.2em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-size: 0.95em;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Grille 3x3 Symétrique */
+        #grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 90px);
+            grid-gap: 12px;
+            margin: 0 auto 30px auto;
+            justify-content: center;
+            background-color: var(--primary-bg);
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border-light);
+            width: max-content;
+        }
+
+        .tile {
+            width: 90px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 26px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent-medium));
+            color: #FFFFFF;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid var(--accent-dark);
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .tile.empty {
+            background: transparent;
+            border: 1px dashed var(--border-light);
+            box-shadow: none;
+            cursor: default;
+        }
+
+        .tile:not(.empty):hover {
+            transform: scale(1.04);
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--accent-dark);
+        }
+
+        #info {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            background: var(--box-bg-light);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            font-size: 1.05em;
+        }
+
+        #info div {
+            color: var(--text-dark);
+        }
+
+        #info strong {
+            color: var(--accent-medium);
+        }
+
+        #reset-button {
+            width: 100%;
+            padding: 14px 0;
+            font-size: 1.1em;
+            font-weight: 700;
+            border: 2px solid var(--accent-dark);
+            border-radius: 8px;
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        #reset-button:hover {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 480px) {
+            #game-container { padding: 25px; }
+            #grid-container { grid-template-columns: repeat(3, 75px); grid-gap: 8px; padding: 8px; }
+            .tile { width: 75px; height: 75px; font-size: 22px; }
+            h1 { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-memorial-ribbon">
+        تخليداً لذكرى الفقيدة الغالية <span>...أسيل الله يرحمك</span>، كتخليد لها و لذكراها العطرة في قلوبنا وعقولنا.
+    </div>
+
+    <div id="game-container">
+        <h1>Number Grid Game</h1>
+        <div class="subtitle">Mathematical Order Puzzle</div>
+        
+        <div id="grid-container">
+            </div>
+        
+        <div id="info">
+            <div><strong>Time:</strong> <span id="time">0</span>s</div>
+            <div><strong>Moves:</strong> <span id="moves">0</span></div>
+        </div>
+        
+        <button id="reset-button">Reset Game</button>
+    </div>
+
+    <script>
+        const gridContainer = document.getElementById('grid-container');
+        const timeDisplay = document.getElementById('time');
+        const movesDisplay = document.getElementById('moves');
+        const resetButton = document.getElementById('reset-button');
+
+        let grid = [];
+        let emptyIndex = 8;
+        let moves = 0;
+        let time = 0;
+        let timer;
+
+        // Fonction pour vérifier si la configuration générée est résolvable
+        function isSolvable(arr) {
+            let inversions = 0;
+            const filtered = arr.filter(val => val !== null);
+            for (let i = 0; i < filtered.length; i++) {
+                for (let j = i + 1; j < filtered.length; j++) {
+                    if (filtered[i] > filtered[j]) inversions++;
+                }
+            }
+            return inversions % 2 === 0;
+        }
+
+        function initGame() {
+            do {
+                grid = [1, 2, 3, 4, 5, 6, 7, 8, null];
+                grid.sort(() => Math.random() - 0.5);
+            } while (!isSolvable(grid) || grid.every((val, idx) => val === (idx === 8 ? null : idx + 1)));
+
+            emptyIndex = grid.indexOf(null);
+            moves = 0;
+            time = 0;
+            updateGrid();
+            updateInfo();
+            clearInterval(timer);
+            timer = setInterval(() => {
+                time++;
+                updateInfo();
+            }, 1000);
+        }
+
+        function updateGrid() {
+            gridContainer.innerHTML = '';
+            grid.forEach((value, index) => {
+                const tile = document.createElement('div');
+                tile.className = 'tile';
+                if (value !== null) {
+                    tile.textContent = value;
+                    tile.addEventListener('click', () => moveTile(index));
+                } else {
+                    tile.classList.add('empty');
+                }
+                gridContainer.appendChild(tile);
+            });
+        }
+
+        function moveTile(index) {
+            const row = Math.floor(index / 3);
+            const col = index % 3;
+            const emptyRow = Math.floor(emptyIndex / 3);
+            const emptyCol = emptyIndex % 3;
+
+            // Déplacement orthogonal strict (Distance de Manhattan == 1)
+            const isAdjacent = (Math.abs(row - emptyRow) + Math.abs(col - emptyCol)) === 1;
+
+            if (isAdjacent) {
+                [grid[emptyIndex], grid[index]] = [grid[index], grid[emptyIndex]];
+                emptyIndex = index;
+                moves++;
+                updateGrid();
+                updateInfo();
+                checkWin();
+            }
+        }
+
+        function updateInfo() {
+            timeDisplay.textContent = time;
+            movesDisplay.textContent = moves;
+        }
+
+        function checkWin() {
+            const isSorted = grid.slice(0, 8).every((value, index) => value === index + 1);
+            if (isSorted && emptyIndex === 8) {
+                clearInterval(timer);
+                setTimeout(() => alert(Congratulations! Puzzle solved in ${time} seconds with ${moves} moves.), 100);
+            }
+        }
+
+        resetButton.addEventListener('click', initGame);
+        initGame();
+    </script>
+</body>
+</html>
