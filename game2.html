@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS9YCCEDT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FS9YCCEDT9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math & Chess Challenge - Mémorial Assil Hamdi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+    
+    <!-- Bibliothèques d'Échecs Réels (Chessboard.js & Chess.js) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"></script>
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* --- PALETTE DE COULEURS HARMONISÉE : BRUN ET OR PREMIUM --- */
+        :root {
+            --primary-bg: #FFFFFF; 
+            --secondary-bg: #F4F1EA; 
+            --accent-dark: #3E2723; 
+            --accent-medium: #5D4037; 
+            --accent-gold: #D4AF37; 
+            --text-dark: #2A211F; 
+            --text-light: #756865; 
+            --border-color: #E6E1DA; 
+            --shadow-subtle: rgba(62, 39, 35, 0.05) 0px 4px 20px 0px;
+            --shadow-deep: rgba(62, 39, 35, 0.12) 0px 12px 30px 0px;
+            --border-radius-size: 10px;
+        }
+
+        body {
+            font-family: 'Roboto', 'Cairo', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0 0 40px 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        /* شريط الترحم العلوي */
+        .top-memorial-ribbon {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            padding: 12px 30px;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-gold);
+            letter-spacing: 0.5px;
+            direction: rtl;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .top-memorial-ribbon span {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--accent-dark);
+            letter-spacing: 0.05em;
+            background: var(--secondary-bg);
+            border-bottom: 3px solid var(--accent-gold);
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0 0 40px 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 1.15em;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+        }
+
+        /* Problem Card */
+        .problem-card {
+            background-color: var(--primary-bg);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-size);
+            box-shadow: var(--shadow-subtle);
+            text-align: left;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            box-shadow: var(--shadow-deep);
+            border-color: var(--accent-gold);
+        }
+
+        .problem-card p {
+            font-size: 1.1em;
+            color: var(--text-dark);
+        }
+
+        .problem-card .MathJax {
+            color: var(--accent-dark) !important;
+        }
+
+        /* Form Controls */
+        .input-group {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-size);
+            font-size: 1.1em;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            border: 2px solid var(--accent-dark);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- CHESS INTERFACE (Hidden by default) --- */
+        #chessContainer {
+            display: none;
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: var(--border-radius-size);
+            box-shadow: var(--shadow-deep);
+            border: 1px solid var(--border-color);
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        #myBoard {
+            width: 450px;
+            max-width: 100%;
+            margin: 0 auto 20px auto;
+            border: 4px solid var(--accent-dark);
+            border-radius: 4px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .game-status {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--accent-dark);
+            margin: 15px 0;
+            padding: 10px;
+            background: #FFFFFF;
+            border-radius: 6px;
+            border-left: 5px solid var(--accent-gold);
+            display: inline-block;
+        }
+
+        /* Custom styling for chessboard.js squares to fit the brown/gold aesthetic */
+        .white-1e1d7 { background-color: #F4F1EA !important; color: #5D4037 !important; }
+        .black-1e1d7 { background-color: #5D4037 !important; color: #F4F1EA !important; }
+
+        .notice-card {
+            margin-top: 40px;
+            padding: 20px;
+            border-radius: var(--border-radius-size);
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            font-size: 0.95em;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; padding: 30px 15px; }
+            #myBoard { width: 320px; }
+            .input-group { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-memorial-ribbon">
+        تخليداً لذكرى الفقيدة الغالية <span>...أسيل الله يرحمك</span>، كتخليد لها و لذكراها العطرة في قلوبنا وعقولنا.
+    </div>
+
+    <h1>Grand Master Arena</h1>
+
+    <div class="container">
+        <p class="intro-text">Welcome to the inner sanctum. To unlock the premium tactical chessboard interface and test your strategic operational skills, you must first crack the analytical gatekeeper problem below.</p>
+        
+        <!-- Math Gatekeeper Card -->
+        <div id="gatekeeperProblem" class="problem-card">
+            <p><strong>Problem:</strong> Let \( P(x) \) be a polynomial of degree 2024 defined by:</p>
+            <p>$$P(x) = x^{2024} + a_{2023}x^{2023} + a_{2022}x^{2022} + \cdots + a_1x + a_0,$$</p>
+            <p>where all coefficients \( a_i \) are integers. It is known that for any integer \( n \), \( P(n) \) is divisible by \( n^2 + n + 1 \). Determine the sum of all the coefficients of the polynomial \( P(x) \) such that \(-a_{2023} < 3^{997}\).</p>
+
+            <form id="answerForm" class="input-group">
+                <input type="text" id="userAnswer" placeholder="Enter your answer (e.g., 3^1012)" required>
+                <button type="submit" class="btn">Unlock Chessboard</button>
+            </form>
+        </div>
+
+        <!-- Real Chess Game Application View -->
+        <div id="chessContainer">
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-dark); margin-top: 0;">Interactive Combat Training</h2>
+            <div id="myBoard"></div>
+            <div>
+                <div class="game-status" id="status">Turn: White to move</div>
+            </div>
+            <button class="btn" id="resetBtn" style="margin-top: 10px; padding: 8px 20px; font-size: 0.95em;">Restart Match</button>
+        </div>
+
+        <div class="notice-card">
+            <strong>Operational Advisory:</strong> Strategic training simulation is meant for off-duty hours. Exercise critical cognitive development and maintain focus.
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const correctAnswer = "3^1012";
+            const problemCard = document.getElementById("gatekeeperProblem");
+            const chessContainer = document.getElementById("chessContainer");
+            const savedAnswer = localStorage.getItem("chessUnlockedAnswer");
+
+            // Check if already solved
+            if (savedAnswer === correctAnswer) {
+                unlockChessGame();
+            }
+
+            document.getElementById("answerForm").addEventListener("submit", function(e) {
+                e.preventDefault();
+                const input = document.getElementById("userAnswer").value.trim();
+                if (input === correctAnswer) {
+                    localStorage.setItem("chessUnlockedAnswer", input);
+                    unlockChessGame();
+                } else {
+                    alert("Incorrect analytical deduction. Re-verify polynomial constraints and try again.");
+                }
+            });
+
+            // Engine and Real Board Setup
+            let board = null;
+            let game = new Chess();
+            const statusEl = document.getElementById('status');
+
+            function unlockChessGame() {
+                problemCard.style.display = "none";
+                chessContainer.style.display = "block";
+                setTimeout(initChessboard, 100); // Small timeout to verify dimensions inside dynamic display block
+            }
+
+            function onDragStart(source, piece, position, orientation) {
+                // Prevent picking up pieces if game is over
+                if (game.game_over()) return false;
+
+                // Only allow the side to move to pick up pieces
+                if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
+                    (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
+                    return false;
+                }
+            }
+
+            function onDrop(source, target) {
+                // Validate and execute structural piece mechanics via chess.js
+                let move = game.move({
+                    from: source,
+                    to: target,
+                    promotion: 'q' // Auto-promote to Queen for UX simplified execution
+                });
+
+                // Illegal asset relocation
+                if (move === null) return 'snapback';
+
+                updateStatusInfo();
+            }
+
+            function onSnapEnd() {
+                board.position(game.fen());
+            }
+
+            function updateStatusInfo() {
+                let status = '';
+                let moveColor = (game.turn() === 'b') ? 'Black' : 'White';
+
+                if (game.in_checkmate()) {
+                    status = 'Game Over: ' + moveColor + ' is in Checkmate.';
+                } else if (game.in_draw()) {
+                    status = 'Game Over: Match ended in a Draw (Stalemate/Repetition).';
+                } else {
+                    status = 'Turn: ' + moveColor + ' to move';
+                    if (game.in_check()) {
+                        status += ' - (CHECK)';
+                    }
+                }
+                statusEl.textContent = status;
+            }
+
+            function initChessboard() {
+                const config = {
+                    draggable: true,
+                    position: 'start',
+                    onDragStart: onDragStart,
+                    onDrop: onDrop,
+                    onSnapEnd: onSnapEnd,
+                    pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+                };
+                board = Chessboard('myBoard', config);
+                updateStatusInfo();
+            }
+
+            document.getElementById('resetBtn').addEventListener('click', function() {
+                game.reset();
+                board.start();
+                updateStatusInfo();
+            });
+        });
+    </script>
+</body>
+</html>
