@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS9YCCEDT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FS9YCCEDT9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extreme Math Olympiad Inequalities - Mémorial Assil Hamdi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* --- PALETTE DE COULEURS HARMONISÉE : BRUN ET OR PREMIUM --- */
+        :root {
+            --primary-bg: #FFFFFF; 
+            --secondary-bg: #F4F1EA; /* Beige très clair doux */
+            --accent-dark: #3E2723; /* Brun profond signature */
+            --accent-medium: #5D4037; /* Brun moyen */
+            --accent-gold: #D4AF37; /* Or métallique précieux */
+            --text-dark: #2A211F; 
+            --text-light: #756865; 
+            --border-color: #E6E1DA; 
+            --table-row-hover: #FAF8F5; 
+            --shadow-subtle: rgba(62, 39, 35, 0.05) 0px 4px 20px 0px;
+            --shadow-deep: rgba(62, 39, 35, 0.12) 0px 12px 30px 0px;
+            --border-radius-size: 10px;
+        }
+
+        /* Base body styles */
+        body {
+            font-family: 'Roboto', 'Cairo', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0 0 40px 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        /* شريط الترحم العلوي */
+        .top-memorial-ribbon {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            padding: 12px 30px;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-gold);
+            letter-spacing: 0.5px;
+            direction: rtl;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .top-memorial-ribbon span {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Main title header */
+        .header-section {
+            background: var(--secondary-bg);
+            border-bottom: 3px solid var(--accent-gold);
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 40px 20px;
+            margin: 0 0 40px 0;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2em;
+            font-weight: 700;
+            color: var(--accent-dark);
+            letter-spacing: 0.05em;
+            margin: 0 0 10px 0;
+        }
+
+        p.subtitle {
+            font-style: italic;
+            font-size: 1.15em;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Conteneur principal centré */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Style des problèmes individuels */
+        .problem {
+            background-color: var(--primary-bg);
+            padding: 25px 30px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-size);
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .problem:hover {
+            box-shadow: var(--shadow-deep);
+            border-color: var(--accent-gold);
+            background-color: var(--table-row-hover);
+        }
+
+        /* Numéro de problème */
+        .problem-header {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.35em;
+            color: var(--accent-dark);
+            margin-bottom: 15px;
+            display: block;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        /* Conteneur pour le LaTeX (MathJax) */
+        .latex-statement {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .latex-statement p {
+            margin: 0;
+        }
+
+        /* Style global pour MathJax dans notre charte */
+        .problem .MathJax {
+            color: var(--accent-dark) !important;
+            font-size: 1.05em !important;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            background-color: var(--secondary-bg);
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.95em;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            .header-section {
+                padding: 30px 15px;
+            }
+            .problem {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-memorial-ribbon">
+        تخليداً لذكرى الفقيدة الغالية <span>...أسيل الله يرحمك</span>، كتخليد لها و لذكراها العطرة في قلوبنا وعقولنا.
+    </div>
+
+    <div class="header-section">
+        <h1>🏆 Extreme Math Olympiad Inequalities 🏆</h1>
+        <p class="subtitle">12 Problems of Extreme Difficulty (in increasing order of challenge)</p>
+    </div>
+
+    <div class="container">
+
+        <div class="problem">
+            <span class="problem-header">Problem 1.</span>
+            <div class="latex-statement">
+                <p>Let a, b, c be positive real numbers such that $$a+b+c=3$$. Prove that:
+                $$\frac{a^2}{b} + \frac{b^2}{c} + \frac{c^2}{a} \ge 3$$</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <span class="problem-header">Problem 2.</span>
+            <div class="latex-statement">
+                <p>Let a, b, c be non-negative real numbers. Prove that:
+                $$a^3 + b^3 + c^3 + 3abc \ge a^2 b + b^2 c + c^2 a + ab^2 + bc^2 + ca^2$$</p>
+            </div>
+        </div>
+        
+        <div class="problem">
+            <span class="problem-header">Problem 3.</span>
+            <div class="latex-statement">
+                <p>Let a, b, c be positive real numbers. Prove that:
+                $$\frac{a^2}{b} + \frac{b^2}{c} + \frac{c^2}{a} \ge a + b + c$$</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <span class="problem-header">Problem 4.</span>
+            <div class="latex-statement">
+                <p>Let x, y, z be positive real numbers such that $xyz=1$. Prove that:
+                $$\frac{1}{x^3(y+z)} + \frac{1}{y^3(z+x)} + \frac{1}{z^3(x+y)} \ge \frac{3}{2}$$</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <span class="problem-header">Problem 5.</span>
+            <div class="latex-statement">
+                <p>Let a, b, c be non-negative real numbers. Prove that:
+                $$(a-b)(a-c) + (b-a)(b-c) + (c-a)(c-b) \ge 0$$</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <span class="problem-header">Problem 6.</span>
+            <div class="latex-statement">
+                <p>Let a, b, c, d be positive real numbers. Prove that:
+                $$\left(\frac{a}{a+b}\right)^3 + \left(\frac{b}{b+c}\right)^3 + \left(\frac{c}{c+d}\right)^3 + \left(\frac{d}{d+a}\right)^3 \ge \frac{1}{4}$$</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <span class="problem-header">Problem 7.</span>
+            <div class="latex-statement">
+                <p>Let a, b, c be positive real numbers such that $$a+b+c=1$$. Prove that:
+                $$\frac{a}{\sqrt{a^2+8bc}} + \frac{b}{\sqrt{b^2+8ca}} + \frac{c}{\sqrt{c^2+8ab}} \ge 1$$</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <span class="problem-header">Problem 8.</span>
+            <div class="latex-statement">
+                <p>Let $$a, b, c \ge 0$$. Prove that:
+                $$\sqrt{4a^2+b^2} + \sqrt{4b^2+c^2} + \sqrt{4c^2+a^2} \ge 2(a+b+c)$$</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <span class="problem-header">Problem 9.</span>
+            <div class="latex-statement">
+                <p>Let a, b, c be positive real numbers. Prove that:
+                $$\frac{a^2}{b^2+c^2} + \frac{b^2}{c^2+a^2} + \frac{c^2}{a^2+b^2} \ge \frac{3}{2}$$</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <span class="problem-header">Problem 10.</span>
+            <div class="latex-statement">
+                <p>Let x, y, z be positive real numbers. Prove that:
+                $$\frac{x^2}{x^2+xy+y^2} + \frac{y^2}{y^2+yz+z^2} + \frac{z^2}{z^2+zx+x^2} \ge 1$$</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <span class="problem-header">Problem 11.</span>
+            <div class="latex-statement">
+                <p>Let a, b, c be positive real numbers such that $$abc=1$$. Prove that:
+                $$\frac{1}{a^2+a+1} + \frac{1}{b^2+b+1} + \frac{1}{c^2+c+1} \ge 1$$</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <span class="problem-header">Problem 12.</span>
+            <div class="latex-statement">
+                <p>Let a, b, c be positive real numbers. Prove that:
+                $$\sum_{\text{cyc}} \sqrt{\frac{2a}{a^2+b^2}} \le \sum_{\text{cyc}} \frac{a}{\sqrt{ab+bc}}$$</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Math Olympiad. All rights reserved.</p>
+    </footer>
+</body>
+</html>
