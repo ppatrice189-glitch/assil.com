@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mémorial Assil Hamdi pour les Mathématiques Avancées</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Montserrat:wght@400;500;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #FAFAFA;
+            --bg-container: #FFFFFF;
+            --bg-secondary: #F4F1EA;
+            --accent-dark: #3E2723;
+            --accent-medium: #5D4037;
+            --accent-gold: #D4AF37;
+            --text-dark: #2A211F;
+            --text-muted: #756865;
+            --border-light: #E6E1DA;
+            --menu-bg: #1A1514;
+            --shadow-premium: rgba(62, 39, 35, 0.05) 0px 4px 20px 0px;
+            --shadow-hover: rgba(62, 39, 35, 0.12) 0px 12px 30px 0px;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            font-family: 'Montserrat', 'Cairo', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        /* شريط الترحم القرآني باللغة العربية */
+        .top-memorial-ribbon {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            padding: 12px 30px;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-gold);
+            letter-spacing: 0.5px;
+            direction: rtl;
+        }
+        
+        .top-memorial-ribbon span {
+            color: var(--accent-gold);
+            font-weight: 700;
+            text-shadow: 0 0 4px rgba(212, 175, 55, 0.3);
+        }
+
+        .top-bar {
+            background-color: var(--bg-container);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .site-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .site-title::after {
+            content: '//';
+            color: var(--accent-gold);
+            font-size: 18px;
+        }
+
+        .menu-icon {
+            width: 32px;
+            height: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 1010;
+        }
+
+        .menu-icon div {
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-dark);
+            border-radius: 2px;
+        }
+
+        .menu-icon:hover div {
+            background-color: var(--accent-gold);
+        }
+
+        .menu-icon.active .bar1 { transform: rotate(45deg) translate(6px, 7px); }
+        .menu-icon.active .bar2 { opacity: 0; }
+        .menu-icon.active .bar3 { transform: rotate(-45deg) translate(5px, -7px); }
+
+        /* اقتباس الحكمة بالفرنسية */
+        .quote-banner {
+            background: linear-gradient(135deg, var(--accent-medium), var(--accent-dark));
+            color: #FFFFFF;
+            padding: 16px 40px;
+            text-align: center;
+            font-style: italic;
+            font-size: 15px;
+            box-shadow: inset 0 -2px 10px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .quote-banner p {
+            margin: 0;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        /* القائمة الجانبية بالفرنسية (تفتح من اليسار) */
+        .sliding-panel {
+            position: fixed;
+            top: 0;
+            left: -340px;
+            width: 320px;
+            height: 100%;
+            background-color: var(--menu-bg);
+            color: #FFFFFF;
+            box-shadow: 4px 0 30px rgba(0,0,0,0.3);
+            z-index: 1005;
+            padding: 90px 0 30px;
+            overflow-y: auto;
+        }
+
+        .sliding-panel.active {
+            left: 0;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #FFFFFF;
+            font-size: 35px;
+            cursor: pointer;
+        }
+        .close-btn:hover { color: var(--accent-gold); }
+
+        .sliding-panel a {
+            display: block;
+            padding: 14px 30px;
+            color: #E0DCD8;
+            text-decoration: none;
+            font-size: 15px;
+            border-left: 4px solid transparent;
+            font-weight: 400;
+        }
+
+        .sliding-panel a:hover {
+            background-color: rgba(255, 255, 255, 0.04);
+            color: #FFFFFF;
+            border-left-color: var(--accent-gold);
+            padding-left: 35px;
+        }
+        
+        .menu-achievement-item {
+            font-size: 13px !important;
+            padding: 10px 40px !important;
+            color: #A39B98 !important;
+        }
+        .menu-achievement-item:hover {
+            color: var(--accent-gold) !important;
+            background-color: transparent !important;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1002;
+        }
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .main-content {
+            padding: 40px 20px;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        /* البلوك التعريفي التذكاري */
+        .creator-section {
+            background-color: var(--bg-container);
+            padding: 50px 40px;
+            margin: 20px auto 60px auto;
+            max-width: 950px;
+            border: 1px solid var(--border-light);
+            border-top: 6px solid var(--accent-gold);
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-premium);
+            position: relative;
+        }
+
+        /* التصميم الجديد والفاخر عند تفعيل حدث الـ Number Theory */
+        .creator-section.dynamic-premium {
+            background: radial-gradient(circle at top right, #2E1C1A, #1A100F);
+            border: 2px solid var(--accent-gold);
+            border-top: 8px solid var(--accent-gold);
+            box-shadow: 0px 15px 40px rgba(214, 175, 55, 0.15);
+            transform: scale(1.02);
+        }
+
+        .creator-section.dynamic-premium h2 {
+            color: var(--accent-gold) !important;
+            text-shadow: 0 0 8px rgba(214, 175, 55, 0.4);
+        }
+
+        .creator-section.dynamic-premium .creator-name {
+            color: #FFFFFF !important;
+            font-size: 46px;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .creator-section.dynamic-premium p, 
+        .creator-section.dynamic-premium .achievements-list li {
+            color: #E0DCD8 !important;
+        }
+
+        .creator-section.dynamic-premium .achievements-list li {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .creator-section h2 {
+            font-size: 18px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+        }
+        
+        .creator-name {
+            display: block;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--accent-dark);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            position: relative;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .creator-name::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+
+        /* المحتوى المكتوب باللغة العربية والقرآن */
+        .arabic-memorial-text {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+            text-align: center;
+            font-size: 19px;
+            line-height: 2;
+            color: var(--text-dark);
+            max-width: 850px;
+            margin: 0 auto 35px auto;
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 750px;
+            text-align: left;
+        }
+
+        .achievements-list li {
+            background-color: var(--bg-main);
+            border-left: 4px solid var(--accent-medium);
+            padding: 14px 20px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: var(--text-dark);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .achievements-list li::before {
+            content: '✦';
+            color: var(--accent-gold);
+            font-size: 14px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .container {
+            background-color: var(--bg-container);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+            border: 1px solid var(--border-light);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .container:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-gold);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent-medium));
+            padding: 18px 25px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+        }
+
+        .content {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .content h3 {
+            margin-top: 0;
+            color: var(--text-muted);
+            font-size: 13px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        
+        .content h3 .online-date {
+            color: var(--accent-medium);
+            font-weight: 600;
+        }
+
+        .box {
+            background-color: var(--bg-main);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        .box a {
+            display: block;
+            color: var(--accent-medium);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .box a::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-size: 1.2em;
+        }
+
+        .container:hover .box a {
+            color: var(--accent-dark);
+        }
+        
+        .container:hover .box a::before {
+            transform: translateX(5px);
+        }
+
+        .statistics {
+            background-color: var(--bg-secondary);
+            padding: 14px 25px;
+            text-align: center;
+            border-top: 1px solid var(--border-light);
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .statistics p span {
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-gold);
+            color: var(--accent-dark);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .footer {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+            border-top: 4px solid var(--accent-gold);
+            font-size: 15px;
+        }
+        
+        .footer p { margin: 8px 0; opacity: 0.8; }
+        .footer .footer-accent { color: var(--accent-gold); font-weight: 600; opacity: 1; }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-medium);
+            color: #FFFFFF;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 990;
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background-color: var(--accent-gold);
+            color: var(--accent-dark);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .top-bar { padding: 15px 20px; }
+            .site-title { font-size: 18px; }
+            .creator-name { font-size: 32px; }
+            .creator-section { padding: 35px 20px; }
+            .section-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="overlay" class="overlay" onclick="togglePanel()"></div>
+
+    <div class="top-memorial-ribbon">
+        قال الله تعالى: ﴿وَبَشِّرِ الصَّابِرِينَ * الَّذِينَ إِذَا أَصَابَتْهُم مُّصِيبَةٌ قَالُواْ إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ﴾ // رحِم الله الفَقيدة الطاهرة <span>أسيل حامدي</span>، زهرة شعبة الرياضيات بسيدي بوزيد - تونس.
+    </div>
+
+    <div class="top-bar">
+        <div class="site-title">Mémorial Assil Math</div>
+        <div id="menuIcon" class="menu-icon" onclick="togglePanel()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </div>
+    
+    <div class="quote-banner">
+        <p>"Le véritable sens de la science est de bâtir un héritage éternel qui illumine les esprits et perpétue la mémoire des âmes pures."</p>
+    </div>
+
+    <div id="slidingPanel" class="sliding-panel">
+        <div class="close-btn" onclick="togglePanel()">&times;</div>
+        <a href="rayen.html">Portail Commémoratif</a>
+        <a href="admin1.html">Tableau de Bord Admin</a>
+        <a href="foruser.html">Conditions d'Utilisation</a>
+        <a href="send.html">Contact & Transmission</a>
+        <a href="statistique.html">Statistiques des Problèmes</a>
+        <a href="game2.html">Défis Mathématiques</a>
+        <a href="play1.html">Jeux d'Esprit Avancés</a>
+        <a href="log.in.html">Connexion Membres</a>
+        <a href="news.html">Actualités du Centre</a>
+        
+        <hr style="border-color: rgba(255,255,255,0.08); margin: 20px 30px;">
+        
+        <a href="#" style="color: var(--accent-gold); font-weight: bold;">Hommage et Héritage :</a>
+        <a href="#" class="menu-achievement-item">Espace dédié à l'âme de la défunte</a>
+        <a href="#" class="menu-achievement-item">Section Mathématiques - Fierté de la Tunisie</a>
+        <a href="#" class="menu-achievement-item">Sadaqa Jariya (Science perpétuelle)</a>
+    </div>
+
+    <div class="main-content">
+        <div id="memorialBlock" class="creator-section">
+            <h2>إهداء ووفاء متجدد إلى روح:</h2>
+            <span class="creator-name">الفقيدة أسيل حامدي</span>
+            <div class="arabic-memorial-text">
+                نسأل الله العلي القدير أن يتغمدها بواسع رحمته، وأن يتقبلها قبولاً حسناً ويسكنها فسيح جناته. 
+                تم تشييد هذا الفضاء الأكاديمي كصدقة علمية جارية ونور مستدام مهدى إلى روح رفيقة العلم 
+                <strong>أسيل حامدي</strong>، طالبة تميزت بشغفها وعلمها، لتظل ذكراها العطرة حية خالدة في قلوبنا وعقولنا. 
+                ﴿إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ﴾.
+            </div>
+            <ul class="achievements-list">
+                <li>Une plateforme interactive dédiée à la diffusion de la culture des mathématiques pures.</li>
+                <li>Des problèmes rigoureusement sélectionnés pour l'entraînement des esprits brillants.</li>
+                <li>Un héritage de connaissances inspiré par l'ambition d'une jeunesse partie trop tôt.</li>
+            </ul>
+        </div>
+        
+        <div class="section-grid">
+            <div class="container">
+                <div class="header">Portail Intelligent</div>
+                <div class="content">
+                    <h3>Activation immédiate : <span class="online-date">23/02/2025</span></h3>
+                    <div class="box">
+                        <a href="gbt.html">Découvrir le portail IA développé</a>
+                    </div>
+                </div>
+                <div class="new-badge">New!</div>
+            </div>
+
+            <div class="container">
+                <div class="header">À Propos du Centre</div>
+                <div class="content">
+                    <h3>Dernière mise à jour : <span class="online-date">22/07/2024</span></h3>
+                    <div class="box">
+                        <a href="aboutversion.html">Consulter les détails de la version</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="header">Confidentialité des Données</div>
+                <div class="content">
+                    <h3>Politique approuvée : <span class="online-date">22/07/2024</span></h3>
+                    <div class="box">
+                        <a href="confidelity.html">Revoir les clauses de sécurité</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="header">Application Officielle</div>
+                <div class="content">
+                    <h3>Disponibilité : <span class="online-date">22/07/2024</span></h3>
+                    <div class="box">
+                        <a href="install application.html">Télécharger le fichier d'installation</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="header">Programmes & Exercices</div>
+                <div class="content">
+                    <h3>Ajout de contenus : <span class="online-date">01/08/2024</span></h3>
+                    <div class="box">
+                        <a href="courses and problems.html">Parcourir le répertoire complet</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="header">Olympiades & Défis</div>
+                <div class="content">
+                    <h3>Publication : <span class="online-date">22/07/2024</span></h3>
+                    <div class="box">
+                        <a href="probleme.html">Relever le défi et viser l'excellence</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="header">Théorie des Nombres</div>
+                <div class="content">
+                    <h3>Statut opérationnel : <span class="online-date">22/07/2024</span></h3>
+                    <div class="box">
+                        <a href="#number-theory" id="ntLink">S'immerger dans l'arithmétique avancée</a>
+                    </div>
+                </div>
+                <div class="statistics">
+                    <p>Disponibles: <span>120</span></p>
+                    <p>Résolus: <span>85</span></p>
+                    <p>Difficulté: <span>Avancé</span></p>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="header">Combinatoire & Dénombrement</div>
+                <div class="content">
+                    <h3>Statut opérationnel : <span class="online-date">22/07/2024</span></h3>
+                    <div class="box">
+                        <a href="combinatoire.html">Explorer les règles de dénombrement</a>
+                    </div>
+                </div>
+                <div class="statistics">
+                    <p>Disponibles: <span>90</span></p>
+                    <p>Résolus: <span>60</span></p>
+                    <p>Difficulté: <span>Moyen</span></p>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="header">Inégalités Mathématiques</div>
+                <div class="content">
+                    <h3>Disponibilité : <span class="online-date">28/10/2025</span></h3>
+                    <div class="box">
+                        <a href="inequality1">Étude approfondie des inégalités</a>
+                    </div>
+                </div>
+                <div class="statistics">
+                    <p>Disponibles: <span>70</span></p>
+                    <p>Résolus: <span>45</span></p>
+                    <p>Difficulté: <span>Complexe</span></p>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="header">Géométrie Avancée</div>
+                <div class="content">
+                    <h3>Statut opérationnel : <span class="online-date">22/07/2024</span></h3>
+                    <div class="box">
+                        <a href="geometry.html">Maîtriser les démonstrations géométriques</a>
+                    </div>
+                </div>
+                <div class="statistics">
+                    <p>Disponibles: <span>150</span></p>
+                    <p>Résolus: <span>100</span></p>
+                    <p>Difficulté: <span>Difficile</span></p>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="header">Équations Fonctionnelles</div>
+                <div class="content">
+                    <h3>Statut opérationnel : <span class="online-date">22/07/2024</span></h3>
+                    <div class="box">
+                        <a href="functionnal equation.html">Décoder les équations fonctionnelles</a>
+                    </div>
+                </div>
+                <div class="statistics">
+                    <p>Disponibles: <span>70</span></p>
+                    <p>Résolus: <span>45</span></p>
+                    <p>Difficulté: <span>Complexe</span></p>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="header">Forum Interactif</div>
+                <div class="content">
+                    <h3>Lien communautaire : <span class="online-date">22/07/2024</span></h3>
+                    <div class="box">
+                        <a href="forum.html">Rejoindre la communauté académique</a>
+                    </div>
+                </div>
+                <div class="statistics">
+                    <p>Messages: <span>5,432</span></p>
+                    <p>Membres actifs: <span>1,210</span></p>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="header">Soumission de Problèmes</div>
+                <div class="content">
+                    <h3>Statut opérationnel : <span class="online-date">22/07/2024</span></h3>
+                    <div class="box">
+                        <a href="submitproblem.html">Proposer et examiner des exercices</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p class="footer-accent">Projet Académique dédié à la mémoire d'Assil Hamdi - Une flamme de science éternelle.</p>
+        <p>&copy; 2026 Tous droits réservés. Dédié comme Sadaqa Jariya à son âme pure.</p>
+    </div>
+
+    <div id="scrollToTop" class="scroll-to-top" onclick="scrollToTop()">
+        &#x2191;
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function togglePanel() {
+                const panel = document.getElementById("slidingPanel");
+                const overlay = document.getElementById("overlay");
+                const menuIcon = document.getElementById("menuIcon");
+                const isActive = panel.classList.contains("active");
+                
+                panel.classList.toggle("active");
+                if(overlay) overlay.classList.toggle("active");
+                if(menuIcon) menuIcon.classList.toggle("active");
+                
+                document.body.style.overflow = isActive ? 'auto' : 'hidden';
+            }
+
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+
+            window.onscroll = function() {
+                const scrollToTopBtn = document.getElementById("scrollToTop");
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    scrollToTopBtn.classList.add("show");
+                } else {
+                    scrollToTopBtn.classList.remove("show");
+                }
+            };
+
+            // حدث الضغط على رابط "Théorie des Nombres" لتعديل مظهر البلوك التذكاري بشكل فاخر ومبهر
+            const ntLink = document.getElementById('ntLink');
+            const memorialBlock = document.getElementById('memorialBlock');
+
+            if(ntLink && memorialBlock) {
+                ntLink.addEventListener('click', (e) => {
+                    e.preventDefault(); // منع السلوك الافتراضي للرابط للتجربة التفاعلية
+                    memorialBlock.classList.add('dynamic-premium');
+                    
+                    // تمرير سلس إلى الأعلى لرؤية التحول الفخم للبلوك
+                    window.scrollTo({
+                        top: memorialBlock.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            window.togglePanel = togglePanel;
+            window.scrollToTop = scrollToTop;
+        });
+    </script>
+</body>
+</html>
