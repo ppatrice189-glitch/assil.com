@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Math Competition Platform - Mémorial Assil Hamdi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto:wght@400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- PALETTE DE COULEURS HARMONISÉE : BRUN ET OR PREMIUM --- */
+        :root {
+            --primary-bg: #F4F1EA; /* Beige très clair doux */
+            --secondary-bg: #ffffff; /* Blanc pur */
+            --accent-dark: #3E2723; /* Brun profond signature */
+            --accent-medium: #5D4037; /* Brun moyen */
+            --accent-gold: #D4AF37; /* Or métallique précieux */
+            --text-dark: #2A211F; /* Noir adouci */
+            --text-light: #756865; /* Gris chaud atténué */
+            --border-light: #E6E1DA; /* Bordure douce */
+            --shadow-subtle: rgba(62, 39, 35, 0.05) 0px 4px 20px 0px;
+            --shadow-medium: rgba(62, 39, 35, 0.12) 0px 12px 30px 0px;
+            --correct-green: #2e7d32;
+            --incorrect-red: #c62828;
+        }
+
+        body {
+            font-family: 'Roboto', 'Cairo', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0 0 50px 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* شريط الترحم العلوي */
+        .top-memorial-ribbon {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            padding: 12px 30px;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-gold);
+            letter-spacing: 0.5px;
+            direction: rtl;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .top-memorial-ribbon span {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .main-container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--secondary-bg);
+            margin: 40px 20px;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-light);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-dark);
+            text-align: center;
+            margin-top: 0;
+            font-weight: 700;
+            font-size: 2.4em;
+        }
+
+        .instruction-banner {
+            background-color: var(--primary-bg);
+            border-left: 4px solid var(--accent-gold);
+            padding: 15px;
+            margin-bottom: 35px;
+            border-radius: 4px;
+            color: var(--accent-medium);
+            font-weight: 500;
+            font-size: 1.05em;
+        }
+
+        .problem-container {
+            position: relative;
+            margin-bottom: 25px;
+            padding: 25px;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            background-color: var(--secondary-bg);
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .problem-container:hover {
+            transform: translateY(-2px);
+            box-shadow: rgba(62, 39, 35, 0.08) 0px 6px 20px 0px;
+        }
+
+        .problem-container.correct {
+            border: 2px solid var(--correct-green);
+            background-color: #f1f8e9;
+        }
+
+        .problem-container.incorrect {
+            border: 2px solid var(--incorrect-red);
+            background-color: #ffebee;
+        }
+
+        .problem-title {
+            font-size: 1.1em;
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            padding-right: 35px;
+            color: var(--text-dark);
+        }
+
+        .answer-input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box;
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            transition: border-color 0.2s;
+        }
+
+        .answer-input:focus {
+            border-color: var(--accent-dark);
+            outline: none;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            background-color: var(--accent-dark);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .submit-button:hover {
+            background-color: var(--accent-gold);
+            color: var(--accent-dark);
+        }
+
+        .charisma-circle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 26px;
+            height: 26px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-dark);
+            font-size: 0.85em;
+            font-weight: 700;
+        }
+
+        .score {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--accent-dark);
+            color: #FFFFFF;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.3em;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            border-bottom: 4px solid var(--accent-gold);
+        }
+    </style>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<body>
+
+    <div class="top-memorial-ribbon">
+        تخليداً لذكرى الفقيدة الغالية <span>...أسيل الله يرحمك</span>، كتخليد لها و لذكراها العطرة في قلوبنا وعقولنا.
+    </div>
+
+    <div class="main-container">
+        <h1>Arithmetic & Algebra Challenge</h1>
+        <div class="instruction-banner">
+            💡 <strong>Notice:</strong> Enter <strong>-1</strong> if the problem does not possess a valid real/integer solution.
+        </div>
+
+        <div id="problem-list">
+            <div class="problem-container" id="problem1">
+                <div class="charisma-circle">C</div>
+                <div class="problem-title">1) Find the remainder of the division of \( 3^{100} \) by 100.</div>
+                <input type="text" class="answer-input" placeholder="Your answer here" id="answer1">
+                <button class="submit-button" onclick="checkAnswer('problem1', 'answer1', 1)">Submit Answer</button>
+            </div>
+
+            <div class="problem-container" id="problem2">
+                <div class="charisma-circle">C</div>
+                <div class="problem-title">2) Let \( a, b, c \) be three strictly positive real numbers such that \( a + b + c = 1 \). What is the value of \( \frac{1}{a^2+1} + \frac{1}{b^2+1} + \frac{1}{c^2+1} \)?</div>
+                <input type="text" class="answer-input" placeholder="Your answer here" id="answer2">
+                <button class="submit-button" onclick="checkAnswer('problem2', 'answer2', 15)">Submit Answer</button>
+            </div>
+
+            <div class="problem-container" id="problem3">
+                <div class="charisma-circle">C</div>
+                <div class="problem-title">3) What is the sum of all positive integers such that \( (n-1)! + n! = (n+1)! \)?</div>
+                <input type="text" class="answer-input" placeholder="Your answer here" id="answer3">
+                <button class="submit-button" onclick="checkAnswer('problem3', 'answer3', 15)">Submit Answer</button>
+            </div>
+
+            <div class="problem-container" id="problem4">
+                <div class="charisma-circle">C</div>
+                <div class="problem-title">4) Let \( a, b, c \) be three integers such that \( a^2 + b^2 = c^2 \). Suppose that \( c + b < 50 \) and \( a < 10 \). What is the maximum sum of \( a + b + c \)?</div>
+                <input type="text" class="answer-input" placeholder="Your answer here" id="answer4">
+                <button class="submit-button" onclick="checkAnswer('problem4', 'answer4', 35)">Submit Answer</button>
+            </div>
+
+            <div class="problem-container" id="problem5">
+                <div class="charisma-circle">C</div>
+                <div class="problem-title">5) Find the sum of the roots of \( x^4 - 8x^3 + 18x^2 - 8x = 0 \).</div>
+                <input type="text" class="answer-input" placeholder="Your answer here" id="answer5">
+                <button class="submit-button" onclick="checkAnswer('problem5', 'answer5', 35)">Submit Answer</button>
+            </div>
+
+            <div class="problem-container" id="problem6">
+                <div class="charisma-circle">C</div>
+                <div class="problem-title">6) Let \( f \) be a function from \( \mathbb{R} \) to \( \mathbb{R} \) such that \( f(x) = x^3 - 3x^2 - 9x - 5 \). Calculate \( f(f(f(2))) \).</div>
+                <input type="text" class="answer-input" placeholder="Your answer here" id="answer6">
+                <button class="submit-button" onclick="checkAnswer('problem6', 'answer6', 35)">Submit Answer</button>
+            </div>
+
+            <div class="problem-container" id="problem7">
+                <div class="charisma-circle">C</div>
+                <div class="problem-title">7) Find an integer \( 100 < n < 2025 \) such that the sum of the digits of \( n \) and \( 2n \) is equal to 1234.</div>
+                <input type="text" class="answer-input" placeholder="Your answer here" id="answer7">
+                <button class="submit-button" onclick="checkAnswer('problem7', 'answer7', 60)">Submit Answer</button>
+            </div>
+
+            <div class="problem-container" id="problem8">
+                <div class="charisma-circle">C</div>
+                <div class="problem-title">8) Find the number of integers \( n \) such that \( 2^{n-1} \cdot n + 1 \) is a perfect square.</div>
+                <input type="text" class="answer-input" placeholder="Your answer here" id="answer8">
+                <button class="submit-button" onclick="checkAnswer('problem8', 'answer8', 60)">Submit Answer</button>
+            </div>
+
+            <div class="problem-container" id="problem9">
+                <div class="charisma-circle">C</div>
+                <div class="problem-title">9) Find the number of integers \( n \) such that \( 2^n + 17 \) is a perfect square.</div>
+                <input type="text" class="answer-input" placeholder="Your answer here" id="answer9">
+                <button class="submit-button" onclick="checkAnswer('problem9', 'answer9', 60)">Submit Answer</button>
+            </div>
+
+            <div class="problem-container" id="problem10">
+                <div class="charisma-circle">C</div>
+                <div class="problem-title">10) What is the sum of all prime numbers \( p \) such that \( 16p^{2024}(p^{2023}+2025) \) is a perfect square and is divisible by 6?</div>
+                <input type="text" class="answer-input" placeholder="Your answer here" id="answer10">
+                <button class="submit-button" onclick="checkAnswer('problem10', 'answer10', 75)">Submit Answer</button>
+            </div>
+
+            <div class="problem-container" id="problem11">
+                <div class="charisma-circle">C</div>
+                <div class="problem-title">11) Let \( a,b \) and \( c \) be 3 positive real numbers such that \( abc=1 \). Find the minimum value of the expression \( a^{3}+b^{3}+c^{3} \).</div>
+                <input type="text" class="answer-input" placeholder="Your answer here" id="answer11">
+                <button class="submit-button" onclick="checkAnswer('problem11', 'answer11', 75)">Submit Answer</button>
+            </div>
+
+            <div class="problem-container" id="problem12">
+                <div class="charisma-circle">C</div>
+                <div class="problem-title">12) Find the largest number of consecutive integers starting from 1 that can be the sum of the squares of the digits of some integer.</div>
+                <input type="text" class="answer-input" placeholder="Your answer here" id="answer12">
+                <button class="submit-button" onclick="checkAnswer('problem12', 'answer12', 90)">Submit Answer</button>
+            </div>
+
+            <div class="problem-container" id="problem13">
+                <div class="charisma-circle">C</div>
+                <div class="problem-title">13) If \( a, b, c \), and \( d \) are 4 integers such that \( a + b + c + d = 2025 \) and \( (abcd)^2 = 2025 \), find the sum of \( a^4 + b + d^2 + 7 \).</div>
+                <input type="text" class="answer-input" placeholder="Your answer here" id="answer13">
+                <button class="submit-button" onclick="checkAnswer('problem13', 'answer13', 100)">Submit Answer</button>
+            </div>
+        </div>
+
+        <div class="score" id="score">Score: 0</div>
+    </div>
+
+<script>
+    function updateScore(newScore) {
+        localStorage.setItem('score', newScore);
+        document.getElementById('score').textContent = 'Score: ' + newScore;
+    }
+
+    function initializeScore() {
+        const storedScore = localStorage.getItem('score');
+        if (storedScore) {
+            document.getElementById('score').textContent = 'Score: ' + storedScore;
+        } else {
+            updateScore(0);
+        }
+        
+        // Rétablir visuellement l'état des questions déjà complétées au chargement
+        const correctAnswers = getCorrectAnswersMapping();
+        Object.keys(correctAnswers).forEach(problemId => {
+            if (localStorage.getItem(problemId) === 'answered') {
+                document.getElementById(problemId).classList.add('correct');
+                // Optionnel : Verrouiller l'input si déjà répondu
+                const inputId = 'answer' + problemId.replace('problem', '');
+                const inputEl = document.getElementById(inputId);
+                if (inputEl) {
+                    inputEl.value = correctAnswers[problemId];
+                    inputEl.disabled = true;
+                }
+            }
+        });
+    }
+
+    function getCorrectAnswersMapping() {
+        return {
+            'problem1': '1',
+            'problem2': '-1',
+            'problem3': '1',
+            'problem4': '36',
+            'problem5': '8',
+            'problem6': '-147',
+            'problem7': '-1',
+            'problem8': '2',
+            'problem9': '3',
+            'problem10': '-1',
+            'problem11': '3',
+            'problem12': '-1',
+            'problem13': '-1'
+        };
+    }
+
+    function checkAnswer(problemId, answerId, problemScore) {
+        const userAnswer = document.getElementById(answerId).value.trim();
+        const storedAnswer = localStorage.getItem(problemId);
+
+        if (storedAnswer) {
+            alert('You have already answered this problem successfully.');
+            return;
+        }
+
+        const correctAnswers = getCorrectAnswersMapping();
+        const correctAnswer = correctAnswers[problemId];
+
+        if (userAnswer === correctAnswer) {
+            document.getElementById(problemId).classList.remove('incorrect');
+            document.getElementById(problemId).classList.add('correct');
+            const currentScore = parseInt(localStorage.getItem('score')) || 0;
+            updateScore(currentScore + problemScore);
+            localStorage.setItem(problemId, 'answered');
+            document.getElementById(answerId).disabled = true;
+        } else {
+            document.getElementById(problemId).classList.add('incorrect');
+        }
+    }
+
+    window.onload = initializeScore;
+</script>
+
+</body>
+</html>
