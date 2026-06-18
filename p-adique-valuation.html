@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS9YCCEDT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FS9YCCEDT9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Guide to p-adic Valuation Theory - Mémorial Assil Hamdi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* --- PALETTE DE COULEURS HARMONISÉE : BRUN ET OR PREMIUM --- */
+        :root {
+            --primary-bg: #F4F1EA; /* Beige très clair doux */
+            --secondary-bg: #ffffff; /* Blanc pur pour le contenu */
+            --accent-dark: #3E2723; /* Brun profond signature */
+            --accent-medium: #5D4037; /* Brun moyen */
+            --accent-gold: #D4AF37; /* Or métallique précieux */
+            --text-dark: #2A211F; /* Noir adouci */
+            --text-light: #756865; /* Gris chaud atténué */
+            --border-light: #E6E1DA; /* Bordure douce beige */
+            --box-bg-light: #FAF9F5; /* Fond beige subtil pour les boîtes */
+            --shadow-light: rgba(62, 39, 35, 0.05) 0px 4px 20px 0px;
+            --shadow-medium: rgba(62, 39, 35, 0.12) 0px 12px 30px 0px;
+            --border-radius-base: 10px;
+        }
+
+        body {
+            font-family: 'Roboto', 'Cairo', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            padding: 0 0 40px 0;
+            line-height: 1.8;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* شريط الترحم العلوي */
+        .top-memorial-ribbon {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            padding: 12px 30px;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-gold);
+            letter-spacing: 0.5px;
+            direction: rtl;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .top-memorial-ribbon span {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .course-content {
+            max-width: 960px;
+            margin: 40px auto;
+            background: var(--secondary-bg);
+            padding: 40px 50px;
+            border-radius: var(--border-radius-base);
+            box-shadow: var(--shadow-medium);
+            box-sizing: border-box;
+        }
+
+        .main-title {
+            font-family: 'Montserrat', 'Playfair Display', serif;
+            color: var(--accent-dark);
+            font-size: 2.6em;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-gold);
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-dark);
+            font-size: 2em;
+            margin-bottom: 25px;
+            margin-top: 45px;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .subsection-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5em;
+            color: var(--accent-medium);
+            margin-bottom: 15px;
+            margin-top: 30px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            font-size: 1.05em;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 5px;
+            margin-bottom: 20px;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            font-size: 1.05em;
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--accent-gold);
+            position: absolute;
+            left: 5px;
+            font-weight: bold;
+            font-size: 1.3em;
+            line-height: 1.5;
+        }
+
+        .styled-box {
+            background-color: var(--box-bg-light);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius-base);
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .styled-box:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Frontières gauches thématiques accordées à la charte Brun/Or */
+        .definition-box { border-left: 6px solid var(--accent-dark); }
+        .property-box { border-left: 6px solid var(--accent-medium); }
+        .problem-box { border-left: 6px solid var(--accent-gold); }
+        .solution-box { border-left: 6px solid #8D6E63; }
+        .equation-box { border-left: 6px solid var(--text-light); }
+
+        .equation-box .MathJax,
+        .styled-box .MathJax,
+        p .MathJax {
+            font-family: 'Fira Code', monospace !important;
+            font-size: 1.05em !important;
+            color: var(--accent-dark) !important;
+            font-weight: 600;
+        }
+        
+        .MathJax_Display {
+            padding: 15px;
+            background-color: var(--primary-bg);
+            border-radius: 6px;
+            margin: 1.5em 0 !important;
+            overflow-x: auto;
+            border: 1px solid var(--border-light);
+        }
+
+        .styled-box strong {
+            color: var(--accent-dark);
+            font-size: 1.1em;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            font-size: 0.95em;
+            color: #FFFFFF;
+            background: var(--accent-dark);
+            border-radius: 0 0 var(--border-radius-base) var(--border-radius-base);
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        @media (max-width: 768px) {
+            .course-content { padding: 25px; margin: 20px auto; }
+            .main-title { font-size: 2em; }
+            .section-title { font-size: 1.6em; }
+            .subsection-title { font-size: 1.3em; }
+            p, ul li { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-memorial-ribbon">
+        تخليداً لذكرى الفقيدة الغالية <span>...أسيل الله يرحمك</span>، كتخليد لها و لذكراها العطرة في قلوبنا وعقولنا.
+    </div>
+
+    <div class="course-content">
+        <h1 class="main-title">Comprehensive Guide to p-adic Valuation Theory</h1>
+
+        <p>The <strong>p-adic valuation</strong> is a powerful tool in number theory and algebra, particularly in understanding the divisibility properties of integers with respect to a prime number. This guide aims to provide an in-depth understanding of the concept, its properties, and its applications.</p>
+
+        <h2 class="section-title">1. Introduction to p-adic Valuation</h2>
+
+        <div class="styled-box definition-box">
+            <p><strong>Definition:</strong></p>
+            <p>Let \( p \) be a prime number. The <em>p-adic valuation</em> of a non-zero integer \( n \), denoted by \( v_p(n) \), is defined as the highest exponent \( k \) such that \( p^k \) divides \( n \) but \( p^{k+1} \) does not. Formally, if \( n \) can be expressed as:</p>
+            <p class="equation-text">
+                \[
+                n = p^k \cdot m \quad \text{where} \quad \gcd(p, m) = 1,
+                \]
+            </p>
+            <p>then \( v_p(n) = k \). If \( n = 0 \), we define \( v_p(0) = \infty \).</p>
+        </div>
+
+        <p>For example, if \( n = 180 \) and \( p = 3 \), we can express \( 180 \) as \( 180 = 3^2 \times 20 \). Thus, \( v_3(180) = 2 \) because \( 3^2 \) is the highest power of \( 3 \) that divides 180.</p>
+
+        <h2 class="section-title">2. Properties of p-adic Valuation</h2>
+
+        <div class="styled-box property-box">
+            <p><strong>Key Properties:</strong></p>
+            <ul>
+                <li><strong>Non-negativity:</strong> For any non-zero integer \( n \), \( v_p(n) \geq 0 \).</li>
+                <li><strong>Multiplicative Property:</strong> For any two non-zero integers \( a \) and \( b \), the p-adic valuation satisfies:
+                    <p class="equation-text">
+                        \[
+                        v_p(ab) = v_p(a) + v_p(b).
+                        \]
+                    </p>
+                </li>
+                <li><strong>Valuation of Powers:</strong> For any integer \( n \) and positive integer \( k \), we have:
+                    <p class="equation-text">
+                        \[
+                        v_p(n^k) = k \cdot v_p(n).
+                        \]
+                    </p>
+                </li>
+                <li><strong>Additivity Property (Ultrametric Inequality):</strong> For any integers \( a \) and \( b \), the p-adic valuation satisfies:
+                    <p class="equation-text">
+                        \[
+                        v_p(a + b) \geq \min(v_p(a), v_p(b)).
+                        \]
+                    </p>
+                    Additionally, if \( v_p(a) \neq v_p(b) \), then equality holds:
+                    <p class="equation-text">
+                        \[
+                        v_p(a + b) = \min(v_p(a), v_p(b)).
+                        \]
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <p>These properties form the foundation of p-adic valuation theory and are essential for solving complex problems related to divisibility and congruences.</p>
+
+        <h2 class="section-title">3. Application in Number Theory</h2>
+
+        <p>The p-adic valuation is particularly useful in the study of Diophantine equations, modular forms, and local fields. It provides a way to measure the topological size of numbers based on arithmetic divisibility rather than standard magnitude features.</p>
+
+        <div class="styled-box equation-box">
+            <p><strong>Example:</strong> Consider the classic equation \( x^2 + y^2 = z^2 \). We can track structural divisibility invariants across specific prime elements using p-adic analytic bounds to derive constraints on the primitive solution matrices.</p>
+        </div>
+
+        <h2 class="section-title">4. Challenging Problem</h2>
+
+        <div class="styled-box problem-box">
+            <p><strong>Problem:</strong></p>
+            <p>Let \( p \) be a prime number, and consider the integer sequence \( a_n \) defined by the recurrence relation:</p>
+            <p class="equation-text">
+                \[
+                a_0 = 2, \quad a_1 = p, \quad \text{and} \quad a_{n+2} = p \cdot a_{n+1} + a_n \quad \text{for} \quad n \geq 0.
+                \]
+            </p>
+            <p>Prove that \( v_p(a_n) \) is structural, and determine the exact value of \( v_p(a_n) \) for all \( n \).</p>
+        </div>
+
+        <h2 class="section-title">5. Solution Outline</h2>
+
+        <div class="styled-box solution-box">
+            <p><strong>Solution Steps:</strong></p>
+
+            <h3 class="subsection-title">Step 1: Base Case</h3>
+            <p>We start by calculating the p-adic valuation for the initial terms of the sequence:</p>
+            <ul>
+                <li>For \( n = 0 \), \( a_0 = 2 \). Since \( p \) does not divide 2 (for any odd prime), \( v_p(a_0) = 0 \).</li>
+                <li>For \( n = 1 \), \( a_1 = p \). By definition, \( v_p(a_1) = 1 \).</li>
+            </ul>
+
+            <h3 class="subsection-title">Step 2: Analysis via Inductive Step</h3>
+            <p>Using the recurrence relation \( a_{n+2} = p \cdot a_{n+1} + a_n \), we can track valuations carefully by checking the cases where the components differ.</p>
+            <p>By the strict ultrametric equality property, if \( v_p(p \cdot a_{n+1}) \neq v_p(a_n) \), then the valuation of the sum is exactly the minimum of the two. Since \( v_p(p \cdot a_{n+1}) = 1 + v_p(a_{n+1}) \), this dynamic drives the periodic progression of the terms.</p>
+
+            <h3 class="subsection-title">Step 3: Exact Value Determination</h3>
+            <p>Let's separate the structural behavior of the system based on the characteristic choices of \( p \):</p>
+
+            <h4>Case 1: \( p = 2 \)</h4>
+            <ul>
+                <li>\( a_0 = 2 \implies v_2(a_0) = 1 \)</li>
+                <li>\( a_1 = 2 \implies v_2(a_1) = 1 \)</li>
+                <li>\( a_2 = 2(2) + 2 = 6 \implies v_2(a_2) = 1 \)</li>
+                <li>\( a_3 = 2(6) + 2 = 14 \implies v_2(a_3) = 1 \)</li>
+            </ul>
+            <p>Thus, for \( p=2 \), \( v_2(a_n) = 1 \) uniformly for all \( n \geq 0 \).</p>
+
+            <h4>Case 2: \( p \neq 2 \)</h4>
+            <ul>
+                <li>When \( n \) is even, \( v_p(a_n) = 0 \). This is shown by checking \( a_0 = 2 \implies v_p(a_0)=0 \), which implies \( v_p(p \cdot a_1) = 2 > v_p(a_0) \), forcing \( v_p(a_2) = 0 \).</li>
+                <li>When \( n \) is odd, \( v_p(a_n) = 1 + v_p(n) \) (by analyzing the generalized factorization of the underlying symmetric characteristic roots).</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Comprehensive Guide to p-adic Valuation Theory. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
