@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS9YCCEDT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FS9YCCEDT9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Geometry - Mémorial Assil Hamdi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* --- PALETTE DE COULEURS HARMONISÉE : BRUN ET OR PREMIUM --- */
+        :root {
+            --primary-bg: #FFFFFF; 
+            --secondary-bg: #F4F1EA; /* Beige très clair doux */
+            --accent-dark: #3E2723; /* Brun profond signature */
+            --accent-medium: #5D4037; /* Brun moyen */
+            --accent-gold: #D4AF37; /* Or métallique précieux */
+            --text-dark: #2A211F; 
+            --text-light: #756865; 
+            --border-color: #E6E1DA; 
+            --table-row-hover: #FAF8F5; 
+            --shadow-subtle: rgba(62, 39, 35, 0.05) 0px 4px 20px 0px;
+            --shadow-deep: rgba(62, 39, 35, 0.12) 0px 12px 30px 0px;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Roboto', 'Cairo', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* شريط الترحم العلوي */
+        .top-memorial-ribbon {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            padding: 12px 30px;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-gold);
+            letter-spacing: 0.5px;
+            direction: rtl;
+        }
+        
+        .top-memorial-ribbon span {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Main Title */
+        .title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 3.2em;
+            font-weight: 700;
+            color: var(--accent-dark);
+            letter-spacing: 0.05em;
+            background: var(--secondary-bg);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        /* Problem Styling (Remplace les tables pour garder la structure exacte des boîtes) */
+        .problem {
+            width: 100%;
+            margin-bottom: 25px; 
+            background: var(--primary-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .problem:hover {
+            box-shadow: var(--shadow-deep);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+            background: var(--table-row-hover);
+        }
+
+        .statement {
+            padding: 20px 25px;
+            font-size: 1.05em;
+            color: var(--text-dark);
+            border-left: 5px solid var(--accent-medium);
+            border-radius: 0 10px 10px 0;
+            transition: border-left-color 0.3s ease;
+        }
+
+        .problem:hover .statement {
+            border-left-color: var(--accent-gold);
+        }
+
+        /* MathJax equations styling */
+        .statement .MathJax {
+            font-family: 'Fira Code', monospace !important;
+            font-size: 1.05em !important;
+            color: var(--accent-dark) !important;
+            font-weight: 500;
+        }
+
+        /* Button */
+        button {
+            display: block;
+            margin: 30px auto 50px auto;
+            width: 90%;
+            max-width: 350px;
+            padding: 15px 30px;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #FFFFFF;
+            background: var(--accent-dark);
+            border: 2px solid var(--accent-dark);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-deep);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        button a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        button:hover {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.2em;
+                padding: 30px 15px;
+            }
+            .container {
+                margin: 20px auto;
+                padding: 10px;
+            }
+            .statement {
+                padding: 15px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-memorial-ribbon">
+        تخليداً لذكرى الفقيدة الغالية <span>...أسيل الله يرحمك</span>، كتخليد لها و لذكراها العطرة في قلوبنا وعقولنا.
+    </div>
+
+    <div class="title">Complex Geometry</div>
+    
+    <div class="container">
+        <div class="problem">
+            <div class="statement">
+                Let \( \triangle ABC \) be a triangle such that \( AB \neq AC \) and \( \angle BAC \neq 90^\circ \). Let \( M \) and \( N \) be the midpoints of segments \( [AB] \) and \( [AC] \), respectively. Let \( E \) and \( F \) be the feet of the altitudes from vertices \( B \) and \( C \), respectively. Let \( O \) be the center of the circumcircle of triangle \( ABC \) and let \( H \) be the orthocenter of triangle \( ABC \). The tangent to the circumcircle of triangle \( ABC \) at \( A \) intersects line \( (MN) \) at point \( P \). Let \( Q \) be the second point of intersection of the circumcircles of triangles \( ABC \) and \( AEF \). Lines \( (EF) \) and \( (AQ) \) intersect at point \( R \). Show that lines \( (OH) \) and \( (PR) \) are perpendicular.
+            </div>
+        </div>
+        
+        <div class="problem">
+            <div class="statement">
+                Let \( \triangle ABC \) be a triangle, and let \( E \) and \( F \) be the feet of the altitudes from vertices \( B \) and \( C \), respectively. Let \( P \) be the intersection point of the altitude from vertex \( A \) with the circumcircle of triangle \( ABC \). Line \( (PE) \) intersects the circumcircle of triangle \( ABC \) at point \( Q \). Show that line \( (BQ) \) intersects segment \( [EF] \) at its midpoint.
+            </div>
+        </div>
+        
+        <div class="problem">
+            <div class="statement">
+                Let \( \triangle ABC \) be a triangle, \( I \) the center of its inscribed circle, and \( \Gamma \) its circumcircle. Let \( M \) be the midpoint of segment \( [BC] \). Let \( D \) be the orthogonal projection of point \( I \) onto segment \( [BC] \). The perpendicular to line \( (AI) \) passing through point \( I \) intersects segment \( [AB] \) at point \( E \) and segment \( [AC] \) at point \( F \). Let \( X \) be the second point of intersection of the circumcircles of triangles \( ABC \) and \( AEF \). Show that lines \( (XD) \) and \( (AM) \) intersect on the circle \( \Gamma \).
+            </div>
+        </div>
+        
+        <div class="problem">
+            <div class="statement">
+                Let \( \triangle ABC \) be an isosceles triangle with vertex at \( A \). Let \( I \) be the center of its inscribed circle. Line \( (BI) \) intersects line \( (AC) \) at point \( D \), and the line perpendicular to line \( (AC) \) passing through \( D \) intersects line \( (AI) \) at point \( E \). Show that the symmetrical point of \( I \) with respect to line \( (AC) \) belongs to the circumcircle of triangle \( BDE \).
+            </div>
+        </div>
+        
+        <div class="problem">
+            <div class="statement">
+                Let \( \triangle ABC \) be a triangle with \( \angle CAB > \angle ABC \). Let \( I \) be the center of its inscribed circle. Let \( D \) be a point on segment \( [BC] \) such that \( \angle CAD = \angle CBA \). Let \( \omega \) be the circle tangent to segment \( [AC] \) at point \( A \) and passing through point \( I \). Let \( X \) be the second point of intersection of circle \( \omega \) with the circumcircle of triangle \( ABC \). Show that the angle bisectors of \( \angle DAB \) and \( \angle CXB \) intersect on segment \( [BC] \).
+            </div>
+        </div>
+        
+        <div class="problem">
+            <div class="statement">
+                Let \( \triangle ABC \) be an acute-angled triangle, and let \( O \) be the center of its circumcircle. Let \( D \), \( E \), and \( F \) be the midpoints of sides \( [BC] \), \( [CA] \), and \( [AB] \), respectively. Let \( M \) be a point distinct from point \( D \) on segment \( [BC] \). Let \( N \) be the intersection point of lines \( (EF) \) and \( (AM) \). The line \( (ON) \) intersects the circumcircle of triangle \( ODM \) at point \( P \). Show that the symmetrical point of \( M \) with respect to line \( (DP) \) belongs to the Euler's circle of triangle \( ABC \).
+            </div>
+        </div>
+        
+        <div class="problem">
+            <div class="statement">
+                Let \( \triangle ABC \) be a triangle and \( \Omega \) its circumcircle. Consider a circle \( \omega \) internally tangent to circle \( \Omega \) at point \( A \). Let \( P \) and \( Q \) be the intersection points (distinct from point \( A \)) of circle \( \omega \) with sides \( [AB] \) and \( [AC] \), respectively. Let \( O \) be the intersection point of lines \( (BQ) \) and \( (CP) \). Let \( A_0 \) be the symmetrical point of \( A \) with respect to line \( (BC) \), and let \( S \) be the intersection point of line \( (OA_0) \) with circle \( \omega \) such that point \( S \) lies on the arc \( PQ \) not containing point \( A \). Show that the circumcircle of triangle \( BSC \) is tangent to circle \( \omega \).
+            </div>
+        </div>
+        
+        <div class="problem">
+            <div class="statement">
+                Let \( \triangle ABC \) be an acute-angled triangle such that \( AB < AC \). Let \( D \), \( E \), and \( F \) be the respective points of contact of the inscribed circle of triangle \( ABC \) with sides \( [BC] \), \( [CA] \), and \( [AB] \). The line perpendicular to segment \( [EF] \) passing through point \( D \) intersects segment \( [AB] \) at point \( G \). The circumcircle of triangle \( AEF \) intersects the circumcircle of triangle \( ABC \) at point \( X \). Show that points \( X \), \( G \), \( D \), and \( B \) are concyclic.
+            </div>
+        </div>
+        
+        <div class="problem">
+            <div class="statement">
+                Let \( \triangle ABC \) be an acute-angled triangle. Let \( D \), \( E \), and \( F \) be the feet of the altitudes from vertices \( A \), \( B \), and \( C \), respectively. Let \( I_1 \) and \( I_2 \) be the centers of the circles inscribed in triangles \( AEF \) and \( BDF \), respectively. Let \( O_1 \) and \( O_2 \) be the centers of the circumcircles of triangles \( ACI_1 \) and \( BCI_2 \), respectively. Show that lines \( (O_1O_2) \) and \( (I_1I_2) \) are parallel.
+            </div>
+        </div>
+    </div>
+    
+    <button><a href="submitproblem.html">Submit your solutions</a></button>
+</body>
+</html>
