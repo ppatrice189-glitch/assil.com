@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS9YCCEDT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FS9YCCEDT9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Announcements - Mémorial Assil Hamdi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- PALETTE DE COULEURS HARMONISÉE : BRUN ET OR PREMIUM --- */
+        :root {
+            --primary-bg: #FFFFFF; 
+            --secondary-bg: #F4F1EA; /* Beige très clair doux */
+            --accent-dark: #3E2723; /* Brun profond signature */
+            --accent-medium: #5D4037; /* Brun moyen */
+            --accent-gold: #D4AF37; /* Or métallique précieux */
+            --text-dark: #2A211F; 
+            --text-light: #756865; 
+            --border-color: #E6E1DA; 
+            --table-row-hover: #FAF8F5; 
+            --shadow-subtle: rgba(62, 39, 35, 0.05) 0px 4px 20px 0px;
+            --shadow-deep: rgba(62, 39, 35, 0.12) 0px 12px 30px 0px;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', 'Cairo', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* شريط الترحم العلوي */
+        .top-memorial-ribbon {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            padding: 12px 30px;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-gold);
+            letter-spacing: 0.5px;
+            direction: rtl;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .top-memorial-ribbon span {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Main Title Header */
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 3.2em;
+            font-weight: 700;
+            color: var(--accent-dark);
+            letter-spacing: 0.05em;
+            background: var(--secondary-bg);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            width: 90%;
+            margin: 40px auto;
+            padding: 10px;
+            box-sizing: border-box;
+            flex-grow: 1;
+        }
+
+        /* Course Cards */
+        .course {
+            background-color: var(--primary-bg);
+            border-radius: 10px;
+            box-shadow: var(--shadow-subtle);
+            margin-bottom: 30px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .course:hover {
+            box-shadow: var(--shadow-deep);
+            border-color: var(--accent-gold);
+            background-color: var(--table-row-hover);
+            transform: translateY(-2px);
+        }
+
+        .course h2 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            font-size: 1.8em;
+            color: var(--accent-dark);
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .course ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .course ul li {
+            margin: 12px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .course ul li::before {
+            content: "•";
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .course ul li a {
+            text-decoration: none;
+            color: var(--accent-medium);
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .course ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Exercise Platform Box */
+        .exercise-platform {
+            background-color: var(--secondary-bg);
+            color: var(--text-dark);
+            border-radius: 10px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-color);
+            padding: 35px 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .exercise-platform h2 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            font-size: 2em;
+            color: var(--accent-dark);
+            margin-bottom: 15px;
+        }
+
+        .exercise-platform p {
+            font-size: 1.1em;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .exercise-platform a {
+            display: inline-block;
+            text-decoration: none;
+            color: #FFFFFF;
+            background-color: var(--accent-dark);
+            padding: 12px 35px;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: var(--shadow-deep);
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-dark);
+        }
+
+        .exercise-platform a:hover {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            background-color: var(--secondary-bg);
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.95em;
+            margin-top: auto;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2.2em;
+                padding: 30px 15px;
+            }
+            .container {
+                width: 95%;
+                margin: 20px auto;
+            }
+            .course {
+                padding: 20px;
+            }
+            .course h2 {
+                font-size: 1.5em;
+            }
+            .exercise-platform a {
+                font-size: 1em;
+                padding: 10px 25px;
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-memorial-ribbon">
+        تخليداً لذكرى الفقيدة الغالية <span>...أسيل الله يرحمك</span>، كتخليد لها و لذكراها العطرة في قلوبنا وعقولنا.
+    </div>
+
+    <div class="header-title">Course Announcements</div>
+
+    <div class="container">
+        <!-- Geometry Category -->
+        <div class="course">
+            <h2>Geometry</h2>
+            <ul>
+                <li><a href="Cocyclic points.html">Cocyclic Points</a></li>
+            </ul>
+        </div>
+
+        <!-- Inequalities Category -->
+        <div class="course">
+            <h2>Inequalities</h2>
+            <ul>
+                <li><a href="inequality.html">Inequality</a></li>
+            </ul>
+        </div>
+
+        <!-- Number Theory Category -->
+        <div class="course">
+            <h2>Number Theory</h2>
+            <ul>
+                <li><a href="p-adique-valuation.html">P-adic valuation</a></li>
+            </ul>
+        </div>
+
+        <!-- Algebra Category -->
+        <div class="course">
+            <h2>Algebra</h2>
+            <ul>
+                <li><a href="equation.html">Equations</a></li>
+                <li><a href="viete .html">Viete formula</a></li>
+            </ul>
+        </div>
+
+        <!-- Exercise Platform Redirect Box -->
+        <div class="exercise-platform">
+            <h2>Exercise Platform</h2>
+            <p>To access the comprehensive exercise database, click the link below:</p>
+            <a href="exercice.html">Access the Exercise Platform</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Math Olympiad. All rights reserved.</p>
+    </footer>
+</body>
+</html>
