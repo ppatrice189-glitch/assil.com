@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "9e4c8637-a7c8-4a85-a6c3-6134145e72bd",
+    });
+  });
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mémorial Assil Hamdi pour les Mathématiques Avancées</title>
