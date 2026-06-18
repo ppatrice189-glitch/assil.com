@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS9YCCEDT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FS9YCCEDT9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Alert - Mémorial Assil Hamdi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- PALETTE DE COULEURS HARMONISÉE : BRUN ET OR PREMIUM --- */
+        :root {
+            --primary-bg: #FFFFFF; 
+            --secondary-bg: #F4F1EA; /* Beige très clair doux */
+            --accent-dark: #3E2723; /* Brun profond signature */
+            --accent-medium: #5D4037; /* Brun moyen */
+            --accent-gold: #D4AF37; /* Or métallique précieux */
+            --text-dark: #2A211F; 
+            --text-light: #756865; 
+            --border-color: #E6E1DA; 
+            --shadow-subtle: rgba(62, 39, 35, 0.05) 0px 4px 20px 0px;
+            --shadow-deep: rgba(62, 39, 35, 0.12) 0px 12px 30px 0px;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', 'Cairo', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* شريط الترحم العلوي */
+        .top-memorial-ribbon {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            padding: 12px 30px;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-gold);
+            letter-spacing: 0.5px;
+            direction: rtl;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .top-memorial-ribbon span {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Main Title Header */
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 3.2em;
+            font-weight: 700;
+            color: var(--accent-dark);
+            letter-spacing: 0.05em;
+            background: var(--secondary-bg);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        /* Center Content Wrapper */
+        .alert-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: var(--primary-bg);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            max-width: 700px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        p strong {
+            color: var(--accent-medium);
+            font-weight: 700;
+        }
+
+        /* Premium Call to Action Button */
+        a.button {
+            display: inline-block;
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            border: 2px solid var(--accent-dark);
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: var(--shadow-deep);
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        a.button:hover {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            background-color: var(--secondary-bg);
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.95em;
+        }
+
+        /* Responsive Settings */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2.2em;
+                padding: 30px 15px;
+            }
+            .container {
+                padding: 30px 20px;
+            }
+            p {
+                font-size: 1.05em;
+            }
+            a.button {
+                padding: 12px 30px;
+                font-size: 1em;
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-memorial-ribbon">
+        تخليداً لذكرى الفقيدة الغالية <span>...أسيل الله يرحمك</span>، كتخليد لها و لذكراها العطرة في قلوبنا وعقولنا.
+    </div>
+
+    <div class="header-title">Send Alert</div>
+
+    <div class="alert-wrapper">
+        <div class="container">
+            <p>
+                This page is specifically designed to allow users to send alerts regarding upcoming competitions. 
+                By using the button below, you can quickly notify us about any new competition alerts, ensuring that 
+                you stay updated with the latest information. Additionally, this page can be used to report any issues 
+                you may encounter, providing a direct way to communicate important information that needs immediate 
+                attention. Your feedback and reports are crucial for maintaining the quality and accuracy of our 
+                competitions and related resources. Thank you for your cooperation and for helping us improve our 
+                services.
+            </p>
+            <p>
+                Click the button below to send an alert email to <strong>matholympiad40@gmail.com</strong>. Please 
+                make sure to provide any relevant details about the competition or issue you are reporting in the 
+                email body for a more effective response.
+            </p>
+            
+            <a href="mailto:matholympiad40@gmail.com?subject=Send%20alert%20of%20competition" class="button">Send Alert</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Math Olympiad. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
