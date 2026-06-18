@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS9YCCEDT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FS9YCCEDT9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics Olympiad: Official App Portal - Mémorial Assil Hamdi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- PALETTE DE COULEURS HARMONISÉE : BRUN ET OR PREMIUM --- */
+        :root {
+            --primary-bg: #FFFFFF; 
+            --secondary-bg: #F4F1EA; /* Beige très clair doux */
+            --accent-dark: #3E2723; /* Brun profond signature */
+            --accent-medium: #5D4037; /* Brun moyen */
+            --accent-gold: #D4AF37; /* Or métallique précieux */
+            --text-dark: #2A211F; 
+            --text-light: #756865; 
+            --border-color: #E6E1DA; 
+            --shadow-subtle: rgba(62, 39, 35, 0.05) 0px 4px 20px 0px;
+            --shadow-deep: rgba(62, 39, 35, 0.12) 0px 12px 30px 0px;
+            --success-green: #2E7D32;
+            --border-radius-size: 10px;
+        }
+
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', 'Cairo', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* شريط الترحم العلوي */
+        .top-memorial-ribbon {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            padding: 12px 30px;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-gold);
+            letter-spacing: 0.5px;
+            direction: rtl;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .top-memorial-ribbon span {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Main Section Styling */
+        .section {
+            padding: 80px 20px;
+            background-color: var(--primary-bg);
+            box-sizing: border-box;
+        }
+
+        .section:nth-child(even) {
+            background-color: var(--secondary-bg);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent-medium));
+            color: #FFFFFF;
+            padding: 100px 20px;
+            box-shadow: var(--shadow-deep);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" opacity="0.04"><circle cx="20" cy="20" r="10" fill="white"/><circle cx="80" cy="50" r="15" fill="white"/><circle cx="50" cy="80" r="8" fill="white"/></svg>') repeat;
+            background-size: 80px;
+            animation: move-pattern 60s linear infinite;
+        }
+
+        @keyframes move-pattern {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-section p {
+            font-size: 1.25em;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            position: relative;
+            z-index: 1;
+            color: #FFFFFF;
+        }
+
+        /* General Headings */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-dark);
+            font-size: 2.6em;
+            margin-bottom: 40px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 65px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: var(--accent-dark);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+
+        /* Call to Action Buttons */
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            font-size: 1em;
+            color: #FFFFFF;
+            background-color: var(--accent-dark);
+            border: 2px solid var(--accent-dark);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-deep);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn:hover:not(.inactive) {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--accent-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Inactive State Styling */
+        .btn.inactive {
+            background-color: var(--secondary-bg);
+            color: var(--text-light);
+            border: 2px dashed var(--border-color);
+            box-shadow: none;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .hero-section .btn.inactive {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.7);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            box-shadow: none;
+        }
+
+        /* Alert Box for Important Updates */
+        .alert-warning {
+            background-color: #FAF6F0; /* Soft warm tint instead of aggressive red */
+            border-left: 5px solid var(--accent-gold);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            color: var(--text-dark);
+            padding: 30px;
+            border-radius: var(--border-radius-size);
+            margin: 50px auto 0 auto;
+            text-align: left;
+            font-size: 1.1em;
+            box-shadow: var(--shadow-subtle);
+            line-height: 1.8;
+        }
+        
+        .alert-warning strong {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35em;
+            margin-bottom: 12px;
+            color: var(--accent-dark);
+        }
+        
+        .alert-warning p {
+            margin: 0 0 15px 0;
+            color: var(--text-dark);
+        }
+
+        .alert-warning p:last-of-type {
+            margin-bottom: 0;
+        }
+        
+        .alert-warning .apology {
+            font-style: italic;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Info Panel / Statistics Section */
+        .info-panel {
+            background-color: var(--primary-bg);
+            border-radius: var(--border-radius-size);
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .info-panel h3 {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .info-panel ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-panel li {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border-color);
+            color: var(--text-dark);
+        }
+
+        .info-panel li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .info-panel li strong {
+            color: var(--accent-medium);
+            font-weight: 700;
+        }
+
+        .info-panel .total-users {
+            font-size: 1.35em;
+            font-weight: 700;
+            margin-top: 35px;
+            text-align: center;
+            color: var(--success-green);
+            padding: 15px;
+            background-color: rgba(46, 125, 50, 0.06);
+            border-radius: 6px;
+        }
+
+        .info-panel .recommendation {
+            font-size: 1em;
+            margin-top: 30px;
+            color: var(--text-light);
+            padding: 15px 20px;
+            background-color: var(--secondary-bg);
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 4px;
+        }
+
+        .info-panel .recommendation strong {
+            color: var(--accent-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            padding: 40px 20px;
+            font-size: 0.95em;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .section { padding: 60px 15px; }
+            .hero-section { padding: 80px 15px; }
+            .hero-section h1 { font-size: 2.6em; }
+            h2 { font-size: 2em; }
+            h3 { font-size: 1.5em; }
+            .btn-group { flex-direction: column; gap: 15px; align-items: center; }
+            .btn { width: 100%; max-width: 320px; box-sizing: border-box; }
+            .info-panel { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-memorial-ribbon">
+        تخليداً لذكرى الفقيدة الغالية <span>...أسيل الله يرحمك</span>، كتخليد لها و لذكراها العطرة في قلوبنا وعقولنا.
+    </div>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>Mathematics Olympiad</h1>
+            <p>Empower your journey in mathematics. Access our official application for an enhanced learning experience, problem-solving tools, and community features.</p>
+            <span class="btn inactive">Get the App Now (Temporarily Unavailable)</span>
+        </div>
+    </section>
+
+    <section class="section" id="download-section">
+        <div class="container">
+            <h2>Download Our Application</h2>
+            <p>We are currently finalizing a major update to our application. The download links below are temporarily disabled until the new stable version is deployed.</p>
+
+            <div class="btn-group">
+                <span class="btn inactive">App Store Link (Inactive)</span>
+                <span class="btn inactive">Google Play Link (Inactive)</span>
+                <span class="btn inactive">Direct Download (Inactive)</span>
+            </div>
+            
+            <div class="alert-warning">
+                <strong>Important Update and Installation Notice</strong>
+                <p>Due to a major application overhaul and the integration of new features, all existing versions of the Mathematics Olympiad app must be *uninstalled immediately*. Please check this page regularly for the official new release links.</p>
+                <p>We are working diligently to finalize the new version and aim to dispose of the updated, stable release in the near future. We will notify the community immediately upon deployment.</p>
+                <p class="apology">We are so sorry for this temporary inconvenience, and thank you for your patience and continued support!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Our Community at a Glance</h2>
+            <div class="info-panel">
+                <h3>Installation Statistics</h3>
+                <ul>
+                    <li><span>Uptodown Downloads:</span> <strong>194</strong></li>
+                    <li><span>Appgeyser Installations:</span> <strong>51</strong></li>
+                    <li><span>Rebrand Users:</span> <strong>104</strong></li>
+                    <li><span>GitHub Engagements:</span> <strong>587</strong></li>
+                </ul>
+                <p class="total-users">Total Active Community Members: <strong>938</strong></p>
+                <p class="recommendation">
+                    <strong>Note:</strong> Statistics shown reflect historical data. New user registration is paused pending the update.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Mathematics Olympiad. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
