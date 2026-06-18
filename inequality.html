@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inégalités des Moyennes (AM, GM, QM, HM) - Mémorial Assil Hamdi</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS9YCCEDT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FS9YCCEDT9');
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Montserrat:wght@400;600;700&family=Lora:wght@400;600&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* --- PALETTE DE COULEURS HARMONISÉE : BRUN ET OR PREMIUM --- */
+        :root {
+            --primary-bg: #FAFAFA; /* Off-white propre */
+            --secondary-bg: #FFFFFF; /* Blanc pur pour les conteneurs */
+            --bg-secondary-light: #F4F1EA; /* Beige très clair doux */
+            --accent-dark: #3E2723; /* Brun profond signature */
+            --accent-medium: #5D4037; /* Brun moyen */
+            --accent-gold: #D4AF37; /* Or métallique précieux */
+            --text-dark: #2A211F; 
+            --text-light: #756865; 
+            --border-light: #E6E1DA; 
+            --code-bg: #F9F7F2; 
+            --shadow-light: rgba(62, 39, 35, 0.05) 0px 4px 20px 0px;
+            --shadow-medium: rgba(62, 39, 35, 0.12) 0px 12px 30px 0px;
+        }
+
+        body {
+            font-family: 'Lora', 'Cairo', serif;
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* شريط الترحم العلوي */
+        .top-memorial-ribbon {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            padding: 12px 30px;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-gold);
+            letter-spacing: 0.5px;
+            direction: rtl;
+        }
+        
+        .top-memorial-ribbon span {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--secondary-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', 'Cairo', sans-serif;
+            color: var(--accent-dark);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            position: relative;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-gold);
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--accent-medium);
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        p, ul {
+            margin: 15px 0;
+            font-size: 1.1em;
+            color: var(--text-dark);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        ul li::before {
+            content: "✦";
+            color: var(--accent-gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .equation {
+            background-color: var(--code-bg);
+            padding: 18px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 1.1em;
+            border-left: 4px solid var(--accent-gold);
+            margin: 25px 0;
+        }
+
+        .MathJax {
+            font-family: 'Fira Code', monospace !important;
+            color: var(--accent-dark) !important;
+        }
+
+        .box {
+            background-color: var(--secondary-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow-light);
+            margin-bottom: 30px;
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--accent-gold);
+        }
+
+        .exercise {
+            background-color: #FAF5EF; /* Teinte brune ambrée très claire */
+            border-left: 6px solid var(--accent-gold);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: var(--shadow-light);
+        }
+
+        .exercise h2 {
+            color: var(--accent-medium);
+            border-bottom-color: rgba(212, 175, 55, 0.2);
+        }
+
+        .solution {
+            background-color: #F4F7F4; /* Teinte douce harmonieuse pour réussite/solution */
+            border-left: 6px solid #4E7D56;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: var(--shadow-light);
+        }
+
+        .solution h2 {
+            color: #385E3E;
+            border-bottom-color: rgba(78, 125, 86, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+                margin: 20px auto;
+            }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-memorial-ribbon">
+        تخليداً لذكرى الفقيدة الغالية <span>...أسيل الله يرحمك</span>، كتخليد لها و لذكراها العطرة في قلوبنا وعقولنا.
+    </div>
+
+    <div class="container">
+        <h1>Comprehensive Course: Inequalities of Means (AM, GM, QM, HM)</h1>
+        
+        <div class="box">
+            <h2>Introduction</h2>
+            <p>The inequalities of means are fundamental in mathematics and provide powerful tools for comparing different types of averages. These inequalities establish relationships between the arithmetic mean (AM), geometric mean (GM), quadratic mean (QM), and harmonic mean (HM) of a set of positive real numbers.</p>
+            <p>The general relationship between these means is expressed as follows:</p>
+            <p class="equation">
+                \[
+                H_n \leq G_n \leq A_n \leq Q_n
+                \]
+            </p>
+            <p>where \( H_n \), \( G_n \), \( A_n \), and \( Q_n \) are the harmonic, geometric, arithmetic, and quadratic means, respectively. Equality holds if and only if all the numbers in the set are equal.</p>
+        </div>
+
+        <div class="box">
+            <h2>Definitions</h2>
+            <p>Given a set of positive real numbers \( a_1, a_2, \dots, a_n \), the means are defined as follows:</p>
+            <ul>
+                <li><strong>Arithmetic Mean (AM):</strong> 
+                \[
+                A_n = \frac{a_1 + a_2 + \dots + a_n}{n}
+                \]
+                The arithmetic mean is the simple average of the numbers.</li>
+
+                <li><strong>Geometric Mean (GM):</strong> 
+                \[
+                G_n = \sqrt[n]{a_1 \cdot a_2 \cdot \dots \cdot a_n}
+                \]
+                The geometric mean is the \(n\)th root of the product of the numbers.</li>
+
+                <li><strong>Quadratic Mean (QM):</strong> 
+                \[
+                Q_n = \sqrt{\frac{a_1^2 + a_2^2 + \dots + a_n^2}{n}}
+                \]
+                The quadratic mean, also known as the root mean square, is the square root of the average of the squares of the numbers.</li>
+
+                <li><strong>Harmonic Mean (HM):</strong> 
+                \[
+                H_n = \frac{n}{\frac{1}{a_1} + \frac{1}{a_2} + \dots + \frac{1}{a_n}}
+                \]
+                The harmonic mean is the reciprocal of the average of the reciprocals of the numbers.</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h2>Relationship Between the Means</h2>
+            <p>The inequalities among these means can be summarized as follows:</p>
+            <p class="equation">
+                \[
+                H_n \leq G_n \leq A_n \leq Q_n
+                \]
+            </p>
+            <p>These inequalities hold for any set of positive real numbers. The proofs of these inequalities can be derived using various methods, including algebraic manipulations, the Cauchy-Schwarz inequality, and Jensen's inequality.</p>
+
+            <h3>Proof of AM-GM Inequality</h3>
+            <p>The AM-GM inequality states that for any set of positive real numbers \( a_1, a_2, \dots, a_n \), we have:</p>
+            <p class="equation">
+                \[
+                A_n \geq G_n
+                \]
+            </p>
+            <p>That is, the arithmetic mean is always greater than or equal to the geometric mean. The equality holds if and only if all the numbers are equal.</p>
+
+            <h4>Proof for \( n = 2 \) (Simple Case)</h4>
+            <p>Consider two positive real numbers \( a \) and \( b \). The AM-GM inequality states:</p>
+            <p class="equation">
+                \[
+                \frac{a + b}{2} \geq \sqrt{ab}
+                \]
+            </p>
+            <p>Squaring both sides:</p>
+            <p class="equation">
+                \[
+                \left(\frac{a + b}{2}\right)^2 \geq ab
+                \]
+            </p>
+            <p>Expanding and simplifying:</p>
+            <p class="equation">
+                \[
+                \frac{a^2 + 2ab + b^2}{4} \geq ab \implies a^2 - 2ab + b^2 \geq 0 \implies (a - b)^2 \geq 0
+                \]
+            </p>
+            <p>Since \( (a - b)^2 \) is always non-negative, the inequality holds.</p>
+
+            <h3>Proof of QM-AM Inequality</h3>
+            <p>The QM-AM inequality states that the quadratic mean is always greater than or equal to the arithmetic mean:</p>
+            <p class="equation">
+                \[
+                Q_n \geq A_n
+                \]
+            </p>
+            <p>We prove this using the Cauchy-Schwarz inequality. For any set of positive real numbers \( a_1, a_2, \dots, a_n \), we have:</p>
+            <p class="equation">
+                \[
+                \left( \sum_{i=1}^n a_i^2 \right) \cdot n \geq \left( \sum_{i=1}^n a_i \right)^2
+                \]
+            </p>
+            <p>Dividing both sides by \( n^2 \) and taking the square root gives the QM-AM inequality:</p>
+            <p class="equation">
+                \[
+                \sqrt{\frac{\sum_{i=1}^n a_i^2}{n}} \geq \frac{\sum_{i=1}^n a_i}{n}
+                \]
+            </p>
+        </div>
+
+        <div class="box">
+            <h2>General Proof Using Jensen's Inequality</h2>
+            <p>Jensen's inequality provides a more general approach to proving inequalities of means. Let \( f(x) \) be a convex function. Then for any positive weights \( \lambda_1, \lambda_2, \dots, \lambda_n \) such that \( \lambda_1 + \lambda_2 + \dots + \lambda_n = 1 \), we have:</p>
+            <p class="equation">
+                \[
+                f\left( \lambda_1 a_1 + \lambda_2 a_2 + \dots + \lambda_n a_n \right) \leq \lambda_1 f(a_1) + \lambda_2 f(a_2) + \dots + \lambda_n f(a_n)
+                \]
+            </p>
+            <p>For the specific case of \( f(x) = -\log(x) \), this leads to the AM-GM inequality. Similarly, using \( f(x) = x^2 \), we derive the QM-AM inequality.</p>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercise: Proving HM-AM Inequality</h2>
+            <p>Prove that for any set of positive real numbers \( a_1, a_2, \dots, a_n \), the harmonic mean is less than or equal to the arithmetic mean:</p>
+            <p class="equation">
+                \[
+                H_n \leq A_n
+                \]
+            </p>
+            <p>Provide a complete proof and discuss the conditions for equality.</p>
+        </div>
+
+        <div class="solution">
+            <h2>Solution</h2>
+            <p>To prove the HM-AM inequality, consider the definition of the harmonic mean:</p>
+            <p class="equation">
+                \[
+                H_n = \frac{n}{\frac{1}{a_1} + \frac{1}{a_2} + \dots + \frac{1}{a_n}}
+                \]
+            </p>
+            <p>By the AM-GM inequality applied to the reciprocals \( \frac{1}{a_1}, \frac{1}{a_2}, \dots, \frac{1}{a_n} \), we have:</p>
+            <p class="equation">
+                \[
+                \frac{\frac{1}{a_1} + \frac{1}{a_2} + \dots + \frac{1}{a_n}}{n} \geq \sqrt[n]{\frac{1}{a_1} \cdot \frac{1}{a_2} \cdot \dots \cdot \frac{1}{a_n}} = \frac{1}{G_n}
+                \]
+            </p>
+            <p>Taking the reciprocal of both sides (and reversing the inequality since we're taking reciprocals of positive numbers):</p>
+            <p class="equation">
+                \[
+                \frac{n}{\frac{1}{a_1} + \frac{1}{a_2} + \dots + \frac{1}{a_n}} \leq \left( \sqrt[n]{\frac{1}{a_1} \cdot \frac{1}{a_2} \cdot \dots \cdot \frac{1}{a_n}} \right)^{-1}
+                \]
+            </p>
+            <p>Which simplifies to:</p>
+             <p class="equation">
+                \[
+                H_n \leq G_n
+                \]
+            </p>
+            <p>Since we know \( G_n \leq A_n \), combining these two inequalities gives \( H_n \leq G_n \leq A_n \). Therefore, \( H_n \leq A_n \).</p>
+            <p>Equality holds if and only if all the numbers \( a_1, a_2, \dots, a_n \) are equal.</p>
+        </div>
+    </div>
+</body>
+</html>
