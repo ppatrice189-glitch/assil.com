@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mémorial Assil Hamdi pour les Mathématiques Avancées</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Montserrat:wght@400;500;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Montserrat:wght@300;400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-main: #FAFAFA;
@@ -14,6 +14,7 @@
             --accent-dark: #3E2723;
             --accent-medium: #5D4037;
             --accent-gold: #D4AF37;
+            --accent-blue-melancholy: #4A6572;
             --text-dark: #2A211F;
             --text-muted: #756865;
             --border-light: #E6E1DA;
@@ -38,7 +39,173 @@
             scroll-behavior: smooth;
         }
 
-        /* شريط الترحم القرآني باللغة العربية */
+        /* ==================================================== */
+        /* DUALITY SYSTEM: MELANCHOLY & JOY COEXISTENCE         */
+        /* ==================================================== */
+        #quantumCosmosOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at center, #0B0808 0%, #020101 100%);
+            z-index: 200000;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #cosmicCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .quantum-theater {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 900px;
+            min-height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .quantum-manifesto {
+            position: absolute;
+            opacity: 0;
+            transform: scale(0.9) translateY(30px);
+            filter: blur(20px);
+            visibility: hidden;
+            transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+            width: 100%;
+        }
+
+        .quantum-manifesto.active-node {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            filter: blur(0);
+            visibility: visible;
+        }
+
+        .quantum-manifesto.collapsed-node {
+            opacity: 0;
+            transform: scale(1.05) translateY(-30px);
+            filter: blur(25px);
+            visibility: visible;
+        }
+
+        /* Animation: Éclat de nostalgie lumineuse */
+        .hologram-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 9px;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(255,255,255,0.6), 0 0 25px var(--accent-gold);
+            animation: emotionalPulse 4s infinite ease-in-out;
+        }
+
+        @keyframes emotionalPulse {
+            0%, 100% { filter: drop-shadow(0 0 2px rgba(74, 101, 114, 0.5)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 15px rgba(214, 175, 55, 0.8)); transform: scale(1.02); }
+        }
+
+        .hologram-transmission {
+            font-size: 21px;
+            font-weight: 300;
+            line-height: 2.3;
+            color: #F5F2EE;
+            max-width: 820px;
+            margin: 0 auto;
+            letter-spacing: 0.8px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+            min-height: 120px;
+        }
+
+        /* Portail Émotionnel Double Halo Inverse */
+        .stellar-portal {
+            width: 250px;
+            height: 320px;
+            margin: 0 auto 35px auto;
+            border-radius: 50% 50% 0 0;
+            padding: 8px;
+            background: rgba(10, 5, 5, 0.7);
+            position: relative;
+            box-shadow: 0 0 50px rgba(74, 101, 114, 0.3), 0 0 30px rgba(214, 175, 55, 0.2);
+        }
+
+        .stellar-portal::before, .stellar-portal::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50% 50% 0 0;
+            padding: 2px;
+            background: linear-gradient(180deg, var(--accent-blue-melancholy), transparent, var(--accent-gold), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .stellar-portal::before { animation: orbitClockwise 9s infinite linear; }
+        .stellar-portal::after { animation: orbitCounterClockwise 13s infinite linear; inset: -8px; }
+
+        @keyframes orbitClockwise { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes orbitCounterClockwise { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+
+        .stellar-portal img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50% 50% 0 0;
+            animation: imageFloat 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes imageFloat { 0% { transform: scale(1); filter: contrast(105%) brightness(95%); } 100% { transform: scale(1.04); filter: contrast(110%) brightness(105%); } }
+
+        .cosmic-dashboard {
+            position: absolute;
+            bottom: 60px;
+            display: flex;
+            gap: 30px;
+            z-index: 3;
+        }
+
+        .space-command-btn {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(214, 175, 55, 0.3);
+            color: #D4AF37;
+            padding: 14px 34px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.5s ease;
+        }
+
+        .space-command-btn:hover {
+            border-color: #FFFFFF;
+            box-shadow: 0 0 30px rgba(214, 175, 55, 0.4);
+            text-shadow: 0 0 8px #FFF;
+            background: var(--accent-gold);
+            color: #030101;
+        }
+
+        /* Ribbon de deuil national */
         .top-memorial-ribbon {
             background-color: var(--accent-dark);
             color: #FFFFFF;
@@ -55,7 +222,6 @@
         .top-memorial-ribbon span {
             color: var(--accent-gold);
             font-weight: 700;
-            text-shadow: 0 0 4px rgba(212, 175, 55, 0.3);
         }
 
         .top-bar {
@@ -68,7 +234,6 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .site-title {
@@ -83,11 +248,7 @@
             gap: 10px;
         }
         
-        .site-title::after {
-            content: '//';
-            color: var(--accent-gold);
-            font-size: 18px;
-        }
+        .site-title::after { content: '//'; color: var(--accent-gold); }
 
         .menu-icon {
             width: 32px;
@@ -106,15 +267,10 @@
             border-radius: 2px;
         }
 
-        .menu-icon:hover div {
-            background-color: var(--accent-gold);
-        }
-
         .menu-icon.active .bar1 { transform: rotate(45deg) translate(6px, 7px); }
         .menu-icon.active .bar2 { opacity: 0; }
         .menu-icon.active .bar3 { transform: rotate(-45deg) translate(5px, -7px); }
 
-        /* اقتباس الحكمة بالفرنسية */
         .quote-banner {
             background: linear-gradient(135deg, var(--accent-medium), var(--accent-dark));
             color: #FFFFFF;
@@ -122,16 +278,9 @@
             text-align: center;
             font-style: italic;
             font-size: 15px;
-            box-shadow: inset 0 -2px 10px rgba(0,0,0,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .quote-banner p {
-            margin: 0;
-            font-weight: 300;
-            letter-spacing: 0.3px;
         }
 
-        /* القائمة الجانبية بالفرنسية (تفتح من اليسار) */
+        /* Sliding Panel Navigation */
         .sliding-panel {
             position: fixed;
             top: 0;
@@ -146,9 +295,7 @@
             overflow-y: auto;
         }
 
-        .sliding-panel.active {
-            left: 0;
-        }
+        .sliding-panel.active { left: 0; }
         
         .close-btn {
             position: absolute;
@@ -158,7 +305,6 @@
             font-size: 35px;
             cursor: pointer;
         }
-        .close-btn:hover { color: var(--accent-gold); }
 
         .sliding-panel a {
             display: block;
@@ -167,7 +313,6 @@
             text-decoration: none;
             font-size: 15px;
             border-left: 4px solid transparent;
-            font-weight: 400;
         }
 
         .sliding-panel a:hover {
@@ -182,10 +327,6 @@
             padding: 10px 40px !important;
             color: #A39B98 !important;
         }
-        .menu-achievement-item:hover {
-            color: var(--accent-gold) !important;
-            background-color: transparent !important;
-        }
 
         .overlay {
             position: fixed;
@@ -199,10 +340,7 @@
             visibility: hidden;
             z-index: 1002;
         }
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .overlay.active { opacity: 1; visibility: visible; }
 
         .main-content {
             padding: 40px 20px;
@@ -210,9 +348,11 @@
             margin: 0 auto;
         }
 
-        /* البلوك التعريفي التذكاري */
+        /* Section commémorative avec animation de fond Dualiste (Tristesse & Joie) */
         .creator-section {
-            background-color: var(--bg-container);
+            background: linear-gradient(125deg, #FFFFFF 0%, #FFFDF9 50%, #F7F4EB 100%);
+            background-size: 200% 200%;
+            animation: emotionalGradient 12s ease infinite;
             padding: 50px 40px;
             margin: 20px auto 60px auto;
             max-width: 950px;
@@ -224,34 +364,9 @@
             position: relative;
         }
 
-        /* التصميم الجديد والفاخر عند تفعيل حدث الـ Number Theory */
-        .creator-section.dynamic-premium {
-            background: radial-gradient(circle at top right, #2E1C1A, #1A100F);
-            border: 2px solid var(--accent-gold);
-            border-top: 8px solid var(--accent-gold);
-            box-shadow: 0px 15px 40px rgba(214, 175, 55, 0.15);
-            transform: scale(1.02);
-        }
-
-        .creator-section.dynamic-premium h2 {
-            color: var(--accent-gold) !important;
-            text-shadow: 0 0 8px rgba(214, 175, 55, 0.4);
-        }
-
-        .creator-section.dynamic-premium .creator-name {
-            color: #FFFFFF !important;
-            font-size: 46px;
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
-        }
-
-        .creator-section.dynamic-premium p, 
-        .creator-section.dynamic-premium .achievements-list li {
-            color: #E0DCD8 !important;
-        }
-
-        .creator-section.dynamic-premium .achievements-list li {
-            background-color: rgba(255, 255, 255, 0.03);
-            border-left: 4px solid var(--accent-gold);
+        @keyframes emotionalGradient {
+            0%, 100% { background-position: 0% 50%; box-shadow: 0 4px 20px rgba(62,39,35,0.04); }
+            50% { background-position: 100% 50%; box-shadow: 0 4px 25px rgba(74,101,114,0.08); }
         }
 
         .creator-section h2 {
@@ -260,7 +375,6 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin: 0 0 10px 0;
-            font-weight: 500;
         }
         
         .creator-name {
@@ -285,7 +399,6 @@
             background-color: var(--accent-gold);
         }
 
-        /* المحتوى المكتوب باللغة العربية والقرآن */
         .arabic-memorial-text {
             font-family: 'Cairo', sans-serif;
             direction: rtl;
@@ -311,7 +424,6 @@
             padding: 14px 20px;
             margin-bottom: 12px;
             font-size: 15px;
-            color: var(--text-dark);
             border-radius: 4px;
             display: flex;
             align-items: center;
@@ -321,7 +433,6 @@
         .achievements-list li::before {
             content: '✦';
             color: var(--accent-gold);
-            font-size: 14px;
         }
 
         .section-grid {
@@ -336,7 +447,6 @@
             overflow: hidden;
             box-shadow: var(--shadow-premium);
             border: 1px solid var(--border-light);
-            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -355,7 +465,6 @@
             font-size: 16px;
             font-weight: 600;
             color: #FFFFFF;
-            letter-spacing: 0.5px;
         }
 
         .content {
@@ -371,11 +480,6 @@
             padding-bottom: 10px;
             margin-bottom: 20px;
             font-weight: 400;
-        }
-        
-        .content h3 .online-date {
-            color: var(--accent-medium);
-            font-weight: 600;
         }
 
         .box {
@@ -400,15 +504,6 @@
             position: absolute;
             left: 0;
             color: var(--accent-gold);
-            font-size: 1.2em;
-        }
-
-        .container:hover .box a {
-            color: var(--accent-dark);
-        }
-        
-        .container:hover .box a::before {
-            transform: translateX(5px);
         }
 
         .statistics {
@@ -423,11 +518,8 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-        
-        .statistics p span {
-            color: var(--accent-dark);
-            font-weight: 700;
-        }
+
+        .statistics p span { color: var(--accent-dark); font-weight: 700; }
 
         .new-badge {
             position: absolute;
@@ -440,7 +532,6 @@
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
         .footer {
@@ -450,11 +541,7 @@
             text-align: center;
             margin-top: 80px;
             border-top: 4px solid var(--accent-gold);
-            font-size: 15px;
         }
-        
-        .footer p { margin: 8px 0; opacity: 0.8; }
-        .footer .footer-accent { color: var(--accent-gold); font-weight: 600; opacity: 1; }
 
         .scroll-to-top {
             position: fixed;
@@ -472,31 +559,59 @@
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             z-index: 990;
         }
 
-        .scroll-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-to-top:hover {
-            background-color: var(--accent-gold);
-            color: var(--accent-dark);
-            transform: translateY(-3px);
-        }
+        .scroll-to-top.show { opacity: 1; visibility: visible; }
 
         @media (max-width: 768px) {
             .top-bar { padding: 15px 20px; }
-            .site-title { font-size: 18px; }
             .creator-name { font-size: 32px; }
-            .creator-section { padding: 35px 20px; }
             .section-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+
+    <!-- LAYER MATRIX: COEXISTENCE OF TRISTESSE (FALLING RAIN) & JOIE (RISING STARS) -->
+    <div id="quantumCosmosOverlay">
+        <canvas id="cosmicCanvas"></canvas>
+        <div class="quantum-theater">
+            
+            <div class="quantum-manifesto" id="qNode1">
+                <div class="hologram-title">Géométrie Universelle</div>
+                <div class="hologram-transmission" data-text="Avant l'aube des temps, le cosmos a choisi les mathématiques comme langue absolue. Chaque équation et chaque alignement symétrique d'étoiles représente une vérité immuable tissée dans la réalité."></div>
+            </div>
+
+            <div class="quantum-manifesto" id="qNode2">
+                <div class="hologram-title">Symétrie Éthérée</div>
+                <div class="hologram-transmission" data-text="Certains esprits rares possèdent la clé unique permettant de percevoir cette architecture infinie. Ils ne se contentent pas d'étudier des théorèmes; ils traduisent les pulsations de l'univers en pure logique."></div>
+            </div>
+
+            <div class="quantum-manifesto" id="qNode3">
+                <div class="hologram-title">La Flamme de Sidi Bouzid</div>
+                <div class="hologram-transmission" data-text="Émergeant avec grâce de sa terre natale, un esprit majestueux a dédié son existence à résoudre les profonds mystères de l'arithmétique pure. Un parcours fondé sur la quête d'excellence."></div>
+            </div>
+
+            <div class="quantum-manifesto" id="qNode4">
+                <div class="hologram-title">Lumière Transcendantale</div>
+                <div class="hologram-transmission" data-text="Quand une étoile s'éteint, sa lumière traverse le vide pour l'éternité. De la même façon, son héritage intellectuel se transforme aujourd'hui en une source continue de savoir — un sanctuaire impérissable."></div>
+            </div>
+
+            <div class="quantum-manifesto" id="qNode5">
+                <div class="stellar-portal">
+                    <img src="https://i.ibb.co/JFnK3tD5/IMG-20260618-164251.jpg" alt="Mémorial Assil Hamdi">
+                </div>
+                <div class="hologram-title" style="font-size: 32px; margin-bottom: 5px; letter-spacing: 9px;">Assil Hamdi</div>
+                <div class="hologram-transmission" data-text="Une âme éternelle évoluant par-delà les frontières du temps. Ta mémoire guidera l'avenir mathématique des générations futures."></div>
+            </div>
+
+        </div>
+        <div class="cosmic-dashboard">
+            <button class="space-command-btn" onclick="collapseCosmos()">Passer l'introduction</button>
+            <button class="space-command-btn" onclick="bypassCosmosPermanently()">Ne plus afficher</button>
+        </div>
+    </div>
 
     <div id="overlay" class="overlay" onclick="togglePanel()"></div>
 
@@ -622,7 +737,6 @@
                     <h3>Statut opérationnel : <span class="online-date">22/07/2024</span></h3>
                     <div class="box">
                          <a href="number theory.html">S'immerger dans l'arithmétique avancée</a>
-                       
                     </div>
                 </div>
                 <div class="statistics">
@@ -729,24 +843,186 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- ANIMATION JUMELÉE : PLUIE DE TRISTESSE & ÉTOILES DE JOIE (CANVAS) ---
+            const canvas = document.getElementById('cosmicCanvas');
+            const ctx = canvas.getContext('2d');
+            let elementsArray = [];
+            let frameLoopId = null;
+
+            function matchWindowSize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', matchWindowSize);
+            matchWindowSize();
+
+            // 1. Tristesse : Gouttes de larmes tombant verticalement (Bleu Mélancolie)
+            class TearDrop {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * -canvas.height;
+                    this.length = Math.random() * 15 + 5;
+                    this.speed = Math.random() * 4 + 2;
+                    this.opacity = Math.random() * 0.3 + 0.1;
+                }
+                update() {
+                    this.y += this.speed;
+                    if (this.y > canvas.height) this.reset();
+                }
+                draw() {
+                    ctx.save();
+                    ctx.globalAlpha = this.opacity;
+                    ctx.strokeStyle = '#4A6572';
+                    ctx.lineWidth = 1.5;
+                    ctx.beginPath();
+                    ctx.moveTo(this.x, this.y);
+                    ctx.lineTo(this.x, this.y + this.length);
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            }
+
+            // 2. Joie : Étoiles géométriques s'élevant vers le haut (Or d'Héritage)
+            class JoyStar {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = canvas.height + Math.random() * canvas.height;
+                    this.radius = Math.random() * 2 + 0.5;
+                    this.speed = Math.random() * 1 + 0.5;
+                    this.opacity = Math.random() * 0.7 + 0.3;
+                }
+                update() {
+                    this.y -= this.speed;
+                    if (this.y < 0) this.reset();
+                }
+                draw() {
+                    ctx.save();
+                    ctx.globalAlpha = this.opacity;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = '#D4AF37';
+                    ctx.shadowBlur = 8;
+                    ctx.shadowColor = '#D4AF37';
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }
+
+            // Initialisation du système dual
+            for (let i = 0; i < 100; i++) elementsArray.push(new TearDrop());
+            for (let j = 0; j < 120; j++) elementsArray.push(new JoyStar());
+
+            function runDualEngine() {
+                ctx.fillStyle = 'rgba(2, 1, 1, 0.15)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                elementsArray.forEach(el => {
+                    el.update();
+                    el.draw();
+                });
+                frameLoopId = requestAnimationFrame(runDualEngine);
+            }
+            runDualEngine();
+
+            // --- ANIMATION RAPIDE DE TEXTE SCRIPTÉ ---
+            function performLaserType(element, callback) {
+                const targetText = element.getAttribute('data-text');
+                element.textContent = '';
+                let index = 0;
+                
+                function appendCharacter() {
+                    if (index < targetText.length) {
+                        element.textContent += targetText.charAt(index);
+                        index++;
+                        setTimeout(appendCharacter, 20);
+                    } else if (callback) {
+                        callback();
+                    }
+                }
+                appendCharacter();
+            }
+
+            // --- NAVIGATION SÉQUENTIELLE INTRO ---
+            const cosmosOverlay = document.getElementById('quantumCosmosOverlay');
+            const nodes = [
+                document.getElementById('qNode1'),
+                document.getElementById('qNode2'),
+                document.getElementById('qNode3'),
+                document.getElementById('qNode4'),
+                document.getElementById('qNode5')
+            ];
+            
+            let stage = 0;
+            let sequenceTimeout = null;
+
+            if (localStorage.getItem('bypassCosmicIntro') === 'true') {
+                cleanUpCosmosEngine();
+            } else {
+                document.body.style.overflow = 'hidden';
+                processNextNode();
+            }
+
+            function processNextNode() {
+                if (stage >= nodes.length) {
+                    sequenceTimeout = setTimeout(collapseCosmos, 10000);
+                    return;
+                }
+                if (stage > 0) {
+                    nodes[stage - 1].classList.remove('active-node');
+                    nodes[stage - 1].classList.add('collapsed-node');
+                }
+                setTimeout(() => {
+                    if (nodes[stage]) {
+                        nodes[stage].classList.add('active-node');
+                        const transmissionBox = nodes[stage].querySelector('.hologram-transmission');
+                        if(transmissionBox) {
+                            performLaserType(transmissionBox, () => {
+                                let cadence = (stage === 4) ? 8000 : 4000;
+                                stage++;
+                                sequenceTimeout = setTimeout(processNextNode, cadence);
+                            });
+                        }
+                    }
+                }, 500);
+            }
+
+            function cleanUpCosmosEngine() {
+                cancelAnimationFrame(frameLoopId);
+                if (cosmosOverlay) cosmosOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            window.collapseCosmos = function() {
+                clearTimeout(sequenceTimeout);
+                if (cosmosOverlay) {
+                    cosmosOverlay.style.transition = 'opacity 1.8s ease, transform 1.8s ease';
+                    cosmosOverlay.style.opacity = '0';
+                    cosmosOverlay.style.transform = 'scale(1.05)';
+                    setTimeout(cleanUpCosmosEngine, 1800);
+                }
+            };
+
+            window.bypassCosmosPermanently = function() {
+                localStorage.setItem('bypassCosmicIntro', 'true');
+                window.collapseCosmos();
+            };
+
+            // --- INTERACTION PANEL & INTERFACE ---
             function togglePanel() {
                 const panel = document.getElementById("slidingPanel");
                 const overlay = document.getElementById("overlay");
                 const menuIcon = document.getElementById("menuIcon");
-                const isActive = panel.classList.contains("active");
                 
                 panel.classList.toggle("active");
                 if(overlay) overlay.classList.toggle("active");
                 if(menuIcon) menuIcon.classList.toggle("active");
-                
-                document.body.style.overflow = isActive ? 'auto' : 'hidden';
             }
 
             function scrollToTop() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
             window.onscroll = function() {
@@ -757,23 +1033,6 @@
                     scrollToTopBtn.classList.remove("show");
                 }
             };
-
-            // حدث الضغط على رابط "Théorie des Nombres" لتعديل مظهر البلوك التذكاري بشكل فاخر ومبهر
-            const ntLink = document.getElementById('ntLink');
-            const memorialBlock = document.getElementById('memorialBlock');
-
-            if(ntLink && memorialBlock) {
-                ntLink.addEventListener('click', (e) => {
-                    e.preventDefault(); // منع السلوك الافتراضي للرابط للتجربة التفاعلية
-                    memorialBlock.classList.add('dynamic-premium');
-                    
-                    // تمرير سلس إلى الأعلى لرؤية التحول الفخم للبلوك
-                    window.scrollTo({
-                        top: memorialBlock.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                });
-            }
 
             window.togglePanel = togglePanel;
             window.scrollToTop = scrollToTop;
